@@ -53,6 +53,7 @@
 
 - (IBAction)touched:(id)sender {
     CMIScannerController *scanner = [[CMIScannerController alloc] initWithNibName:@"CMIScannerController" bundle:nil];
+    scanner.delegate = self;
     
     scanner.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
