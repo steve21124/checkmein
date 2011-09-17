@@ -316,6 +316,8 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
     
     _done = YES;
     
+    [Moodstocks cancelAllOperations];
+    
     [self hideLaser];
     
     // Flash effect
