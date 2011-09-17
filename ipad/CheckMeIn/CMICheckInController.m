@@ -84,8 +84,7 @@
     //[self.request startAsynchronous];    
     
     // Finished ..
-    HUD.labelText = @"Loading";
-    HUD.detailsLabelText = @"checking in";
+    HUD.labelText = @"Checking in";
 	
     [HUD show:YES];    
 }
