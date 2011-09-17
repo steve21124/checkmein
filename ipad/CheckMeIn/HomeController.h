@@ -7,14 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CMIScannerController.h"
 
-@interface HomeController : UIViewController<CMIScannerControllerDelegate> {
+@interface HomeController : UIViewController {
 }
 @property (nonatomic, retain) IBOutlet UINavigationItem *navItem;
 
 - (IBAction)touched:(id)sender;
-
--(void) scannerController:(CMIScannerController *)scanner didFound:(NSString *)authToken;
 
 @end

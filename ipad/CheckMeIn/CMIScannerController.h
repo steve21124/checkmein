@@ -18,8 +18,6 @@
 
 #import "CMIImageDecoder.h"
 
-@protocol CMIScannerControllerDelegate;
-
 @interface CMIScannerController : UIViewController <CMIImageDecoderDelegate
 #if MS_HAS_AVFF
 , AVCaptureVideoDataOutputSampleBufferDelegate
@@ -35,8 +33,6 @@
     NSTimeInterval   _startedAt;
     NSTimeInterval   _lastRequestAt;
     BOOL             _done;
-    
-    id<CMIScannerControllerDelegate> _delegate;
 }
 
 @property (nonatomic, retain) UIView *videoPreviewView;
@@ -44,13 +40,5 @@
 @property (nonatomic, retain) AVCaptureSession *captureSession;
 @property (nonatomic, retain) AVCaptureVideoPreviewLayer *previewLayer;
 #endif
-@property (nonatomic, assign) id<CMIScannerControllerDelegate> delegate;
-
-@end
-
-@protocol CMIScannerControllerDelegate<NSObject>
-@optional
-
-- (void)scannerController:(CMIScannerController*)scanner didFound:(NSString*)authToken;
 
 @end

@@ -12,6 +12,8 @@
 #import "CMIConstants.h"
 #import "MSAPIDecoder.h"
 
+#import "CMICheckInController.h"
+
 static const NSUInteger kCMIScannerTimeout = 15;  // seconds before giving up
 
 #if MS_HAS_AVFF
@@ -251,7 +253,6 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
 @synthesize captureSession;
 @synthesize previewLayer;
 #endif
-@synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -267,7 +268,6 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
 - (void)dealloc
 {
     [self stopCapture];
-    _delegate = nil;
     
     [super dealloc];
 }
@@ -382,9 +382,9 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
                      }
     ];
     
-    if ([_delegate respondsToSelector:@selector(scannerController:didFound:)]) {
-        [_delegate scannerController:self didFound:uid];
-    }
+    CMICheckInController *checkInController = [[CMICheckInController alloc] initWithNibName:@"CMIScannerController" bundle:nil];
+    checkInController.accessToken = uid;
+    [self presentModalViewController:checkInController animated:NO];
 }
 
 @end

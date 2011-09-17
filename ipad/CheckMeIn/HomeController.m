@@ -56,24 +56,10 @@
 
 - (IBAction)touched:(id)sender {
     CMIScannerController *scanner = [[CMIScannerController alloc] initWithNibName:@"CMIScannerController" bundle:nil];
-    scanner.delegate = self;
     
     scanner.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
     [self presentModalViewController:scanner animated:YES];
-}
-
-#pragma mark scanner delegate
-
--(void) scannerController:(CMIScannerController *)scanner didFound:(NSString *)authToken {
-    [self dismissModalViewControllerAnimated:YES];
-    
-    CMICheckInController *checkInController = [[CMICheckInController alloc] initWithNibName:@"CMIScannerController" bundle:nil];
-    
-    checkInController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    checkInController.accessToken = authToken;
-    
-    [self presentModalViewController:checkInController animated:YES];
 }
 
 @end
