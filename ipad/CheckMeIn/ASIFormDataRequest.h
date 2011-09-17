@@ -73,4 +73,5 @@ typedef enum _ASIPostFormat {
 
 @property (assign) ASIPostFormat postFormat;
 @property (assign) NSStringEncoding stringEncoding;
+@property (readonly) NSArray *fileData;
 @end

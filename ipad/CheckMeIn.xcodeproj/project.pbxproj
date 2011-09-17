@@ -17,6 +17,15 @@
 		8284AE2B1424C1A2000321FF /* CheckMeInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8284AE2A1424C1A2000321FF /* CheckMeInViewController.m */; };
 		8284AE2E1424C1A2000321FF /* CheckMeInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8284AE2C1424C1A2000321FF /* CheckMeInViewController.xib */; };
 		9A638B5714250780005F5A6A /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A638B5614250780005F5A6A /* NSString+URLEncode.m */; };
+		82C63AE81424D6C1001A6F9F /* Moodstocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C63AE71424D6C1001A6F9F /* Moodstocks.m */; };
+		82C63AED1424D9F7001A6F9F /* CMIScannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C63AEB1424D9F7001A6F9F /* CMIScannerController.m */; };
+		82C63AEE1424D9F7001A6F9F /* CMIScannerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82C63AEC1424D9F7001A6F9F /* CMIScannerController.xib */; };
+		82C63AF81424DE66001A6F9F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C63AF71424DE66001A6F9F /* AVFoundation.framework */; };
+		82C63AFA1424DE74001A6F9F /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C63AF91424DE74001A6F9F /* CoreVideo.framework */; };
+		82C63AFC1424E547001A6F9F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C63AFB1424E547001A6F9F /* CoreMedia.framework */; };
+		82C63BC21424ED9D001A6F9F /* CMIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C63BC11424ED9D001A6F9F /* CMIConstants.m */; };
+		82C63BC61424EF26001A6F9F /* MSAPIDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C63BC51424EF26001A6F9F /* MSAPIDecoder.m */; };
+		82C63BCA1424EFD8001A6F9F /* CMIImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C63BC91424EFD8001A6F9F /* CMIImageDecoder.m */; };
 		9A68ACB11424D4B2005AC677 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A68AC991424D4B2005AC677 /* NSObject+SBJson.m */; };
 		9A68ACB21424D4B2005AC677 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A68AC9C1424D4B2005AC677 /* SBJsonParser.m */; };
 		9A68ACB31424D4B2005AC677 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A68AC9E1424D4B2005AC677 /* SBJsonStreamParser.m */; };
@@ -65,6 +74,21 @@
 		8284AE2D1424C1A2000321FF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CheckMeInViewController.xib; sourceTree = "<group>"; };
 		9A638B5514250780005F5A6A /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
 		9A638B5614250780005F5A6A /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
+		82C63AE61424D6C1001A6F9F /* Moodstocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Moodstocks.h; sourceTree = "<group>"; };
+		82C63AE71424D6C1001A6F9F /* Moodstocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Moodstocks.m; sourceTree = "<group>"; };
+		82C63AEA1424D9F7001A6F9F /* CMIScannerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIScannerController.h; sourceTree = "<group>"; };
+		82C63AEB1424D9F7001A6F9F /* CMIScannerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMIScannerController.m; sourceTree = "<group>"; };
+		82C63AEC1424D9F7001A6F9F /* CMIScannerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMIScannerController.xib; sourceTree = "<group>"; };
+		82C63AF71424DE66001A6F9F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		82C63AF91424DE74001A6F9F /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		82C63AFB1424E547001A6F9F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		82C63BC01424ED9D001A6F9F /* CMIConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIConstants.h; sourceTree = "<group>"; };
+		82C63BC11424ED9D001A6F9F /* CMIConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMIConstants.m; sourceTree = "<group>"; };
+		82C63BC41424EF26001A6F9F /* MSAPIDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSAPIDecoder.h; sourceTree = "<group>"; };
+		82C63BC51424EF26001A6F9F /* MSAPIDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSAPIDecoder.m; sourceTree = "<group>"; };
+		82C63BC71424EF5D001A6F9F /* CMIImageDecoderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIImageDecoderDelegate.h; sourceTree = "<group>"; };
+		82C63BC81424EFD8001A6F9F /* CMIImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIImageDecoder.h; sourceTree = "<group>"; };
+		82C63BC91424EFD8001A6F9F /* CMIImageDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMIImageDecoder.m; sourceTree = "<group>"; };
 		9A68AC981424D4B2005AC677 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
 		9A68AC991424D4B2005AC677 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
 		9A68AC9A1424D4B2005AC677 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
@@ -130,6 +154,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A68ACBE1424DF2C005AC677 /* CoreLocation.framework in Frameworks */,
+				82C63AFC1424E547001A6F9F /* CoreMedia.framework in Frameworks */,
+				82C63AFA1424DE74001A6F9F /* CoreVideo.framework in Frameworks */,
+				82C63AF81424DE66001A6F9F /* AVFoundation.framework in Frameworks */,
 				8284AE191424C1A2000321FF /* CoreGraphics.framework in Frameworks */,
 				9A77A5D21424C59700E7B4C9 /* MobileCoreServices.framework in Frameworks */,
 				9A77A5D01424C58C00E7B4C9 /* SystemConfiguration.framework in Frameworks */,
@@ -147,6 +174,9 @@
 			isa = PBXGroup;
 			children = (
 				9A68ACBD1424DF2C005AC677 /* CoreLocation.framework */,
+				82C63AFB1424E547001A6F9F /* CoreMedia.framework */,
+				82C63AF91424DE74001A6F9F /* CoreVideo.framework */,
+				82C63AF71424DE66001A6F9F /* AVFoundation.framework */,
 				8284AE1A1424C1A2000321FF /* CheckMeIn */,
 				8284AE131424C1A2000321FF /* Frameworks */,
 				8284AE111424C1A2000321FF /* Products */,
@@ -178,8 +208,11 @@
 		8284AE1A1424C1A2000321FF /* CheckMeIn */ = {
 			isa = PBXGroup;
 			children = (
+				82C63AE41424D64F001A6F9F /* Moodstocks Client */,
+				82C63BC31424EEC4001A6F9F /* Image Decoder */,
 				9A77A5DD1424C97A00E7B4C9 /* Common */,
 				9A77A5D71424C63A00E7B4C9 /* Setup */,
+				82C63AE91424D998001A6F9F /* Scanner */,
 				9A77A5521424C37D00E7B4C9 /* Externals */,
 				8284AE231424C1A2000321FF /* CheckMeInAppDelegate.h */,
 				8284AE241424C1A2000321FF /* CheckMeInAppDelegate.m */,
@@ -201,6 +234,45 @@
 				8284AE211424C1A2000321FF /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		82C63AE41424D64F001A6F9F /* Moodstocks Client */ = {
+			isa = PBXGroup;
+			children = (
+				82C63AE61424D6C1001A6F9F /* Moodstocks.h */,
+				82C63AE71424D6C1001A6F9F /* Moodstocks.m */,
+			);
+			name = "Moodstocks Client";
+			sourceTree = "<group>";
+		};
+		82C63AE91424D998001A6F9F /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				82C63AEA1424D9F7001A6F9F /* CMIScannerController.h */,
+				82C63AEB1424D9F7001A6F9F /* CMIScannerController.m */,
+				82C63AEC1424D9F7001A6F9F /* CMIScannerController.xib */,
+			);
+			name = Scanner;
+			sourceTree = "<group>";
+		};
+		82C63BC31424EEC4001A6F9F /* Image Decoder */ = {
+			isa = PBXGroup;
+			children = (
+				82C63BCB1424F031001A6F9F /* Moodstocks */,
+				82C63BC71424EF5D001A6F9F /* CMIImageDecoderDelegate.h */,
+				82C63BC81424EFD8001A6F9F /* CMIImageDecoder.h */,
+				82C63BC91424EFD8001A6F9F /* CMIImageDecoder.m */,
+			);
+			name = "Image Decoder";
+			sourceTree = "<group>";
+		};
+		82C63BCB1424F031001A6F9F /* Moodstocks */ = {
+			isa = PBXGroup;
+			children = (
+				82C63BC41424EF26001A6F9F /* MSAPIDecoder.h */,
+				82C63BC51424EF26001A6F9F /* MSAPIDecoder.m */,
+			);
+			name = Moodstocks;
 			sourceTree = "<group>";
 		};
 		9A68AC961424D4A1005AC677 /* SBJSON */ = {
@@ -298,6 +370,8 @@
 				9A638B5614250780005F5A6A /* NSString+URLEncode.m */,
 				9A77A5E11424C9CC00E7B4C9 /* NSUserDefaults+Extensions.h */,
 				9A77A5E21424C9CC00E7B4C9 /* NSUserDefaults+Extensions.m */,
+				82C63BC01424ED9D001A6F9F /* CMIConstants.h */,
+				82C63BC11424ED9D001A6F9F /* CMIConstants.m */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -357,6 +431,7 @@
 				8284AE281424C1A2000321FF /* MainWindow.xib in Resources */,
 				8284AE2E1424C1A2000321FF /* CheckMeInViewController.xib in Resources */,
 				9A77A5DC1424C6A000E7B4C9 /* CMISetupController.xib in Resources */,
+				82C63AEE1424D9F7001A6F9F /* CMIScannerController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +469,11 @@
 				9A68ACBB1424D4B2005AC677 /* SBJsonUTF8Stream.m in Sources */,
 				9A68ACBC1424D4B2005AC677 /* SBJsonWriter.m in Sources */,
 				9A638B5714250780005F5A6A /* NSString+URLEncode.m in Sources */,
+				82C63AE81424D6C1001A6F9F /* Moodstocks.m in Sources */,
+				82C63AED1424D9F7001A6F9F /* CMIScannerController.m in Sources */,
+				82C63BC21424ED9D001A6F9F /* CMIConstants.m in Sources */,
+				82C63BC61424EF26001A6F9F /* MSAPIDecoder.m in Sources */,
+				82C63BCA1424EFD8001A6F9F /* CMIImageDecoder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
