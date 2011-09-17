@@ -1,0 +1,6 @@
+ipad/build/
+ipad/CheckMeIn.xcodeproj/*.pbxuser
+ipad/CheckMeIn.xcodeproj/*.mode*
+ipad/CheckMeIn.xcodeproj/*.perspectivev3
+ipad/CheckMeIn.xcodeproj/*.xcworkspace/
+ipad/CheckMeIn.xcodeproj/xcuserdata/
