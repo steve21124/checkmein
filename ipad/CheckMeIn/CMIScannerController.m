@@ -8,6 +8,9 @@
 
 #import "CMIScannerController.h"
 
+#import "CMIConstants.h"
+#import "MSAPIDecoder.h"
+
 #if MS_HAS_AVFF
 /* Adapted from http://developer.apple.com/library/ios/#qa/qa1702/_index.html */
 CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
@@ -49,6 +52,7 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
 #endif
 - (void)startCapture;
 - (void)stopCapture;
+- (BOOL)shouldDecodeImage;
 
 @end
 
@@ -149,6 +153,17 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
 #endif
 }
 
+- (BOOL)shouldDecodeImage {
+    BOOL decode = YES;
+    if (_lastRequestAt > 0) {
+        NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
+        if (now - _lastRequestAt < 1.0 /* second */)
+            decode = NO;
+    }
+    
+    return decode;
+}
+
 @end
 
 
@@ -162,7 +177,7 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        _lastRequestAt = -1;
     }
     return self;
 }
@@ -216,11 +231,34 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
     CGImageRef imageRef = CMICreateImageFromSampleBuffer(sampleBuffer);
     UIImage *image = [[UIImage alloc] initWithCGImage:imageRef];
     
-    // TODO: decode the image
+    if ([self shouldDecodeImage]) {
+        MSAPIDecoder* apiDecoder = [[MSAPIDecoder alloc] initWithKey:kCMIMoodstocksKey secret:kCMIMoodstocksSecret];
+        apiDecoder.delegate = self;
+        [apiDecoder decodeImage:image];
+        [apiDecoder release];
+    }
     
     CGImageRelease(imageRef);
     [image release];
 }
 #endif
+
+#pragma - mark CMIImageDecoderDelegate
+
+- (void)decoderWillDecode:(CMIImageDecoder *)decoder {
+    _lastRequestAt = [[NSDate date] timeIntervalSince1970];
+}
+
+- (void)decoder:(CMIImageDecoder *)decoder didDecodeImage:(UIImage *)image withResult:(NSString *)uid {
+    [self stopCapture];
+    
+    /* DEBUG ONLY */
+    [[[[UIAlertView alloc] initWithTitle:@"Match found"
+                                 message:[NSString stringWithFormat:@"id: %@", uid]
+                                delegate:nil
+                       cancelButtonTitle:@"OK"
+                       otherButtonTitles:nil] autorelease] show];
+    /* DEBUG ONLY */
+}
 
 @end

@@ -16,10 +16,19 @@
 #import <AVFoundation/AVFoundation.h>
 #endif
 
-@interface CMIScannerController : UIViewController<AVCaptureVideoDataOutputSampleBufferDelegate> {
+#import "CMIImageDecoder.h"
+
+@interface CMIScannerController : UIViewController <CMIImageDecoderDelegate
+#if MS_HAS_AVFF
+, AVCaptureVideoDataOutputSampleBufferDelegate
+#endif
+> {
 #if MS_HAS_AVFF
     AVCaptureSession*           captureSession;
-#endif    
+#endif
+    
+    // Querying logic
+    NSTimeInterval   _lastRequestAt;
 }
 
 #if MS_HAS_AVFF
