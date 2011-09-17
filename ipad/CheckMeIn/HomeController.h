@@ -10,8 +10,8 @@
 #import "CMIScannerController.h"
 
 @interface HomeController : UIViewController<CMIScannerControllerDelegate> {
-    
 }
+@property (nonatomic, retain) IBOutlet UINavigationItem *navItem;
 
 - (IBAction)touched:(id)sender;
 

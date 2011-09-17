@@ -46,6 +46,7 @@
 		9A6E31081425377600CEA436 /* message_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A6E31041425377600CEA436 /* message_right.png */; };
 		9A6E31091425377600CEA436 /* message_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A6E31051425377600CEA436 /* message_left.png */; };
 		9A6E310D14253B9000CEA436 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A6E310C14253B9000CEA436 /* icon.png */; };
+		9A6E3111142544A300CEA436 /* logo_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A6E3110142544A300CEA436 /* logo_small.png */; };
 		9A73CBD814251C71000D8DED /* checkmein.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A73CBD614251C71000D8DED /* checkmein.png */; };
 		9A73CBDA14251E76000D8DED /* checkmein_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A73CBD914251E76000D8DED /* checkmein_button.png */; };
 		9A73CBE514252502000D8DED /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A73CBE414252502000D8DED /* MBProgressHUD.m */; };
@@ -135,6 +136,7 @@
 		9A6E31041425377600CEA436 /* message_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_right.png; sourceTree = "<group>"; };
 		9A6E31051425377600CEA436 /* message_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = message_left.png; sourceTree = "<group>"; };
 		9A6E310C14253B9000CEA436 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		9A6E3110142544A300CEA436 /* logo_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_small.png; sourceTree = "<group>"; };
 		9A73CBD614251C71000D8DED /* checkmein.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmein.png; sourceTree = "<group>"; };
 		9A73CBD914251E76000D8DED /* checkmein_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmein_button.png; sourceTree = "<group>"; };
 		9A73CBE314252502000D8DED /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 		9A73CBD414251C64000D8DED /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				9A6E3110142544A300CEA436 /* logo_small.png */,
 				9A6E310C14253B9000CEA436 /* icon.png */,
 				9A6E31021425377600CEA436 /* message_bottom.png */,
 				9A6E31031425377600CEA436 /* message_top.png */,
@@ -531,6 +534,7 @@
 				9A6E31081425377600CEA436 /* message_right.png in Resources */,
 				9A6E31091425377600CEA436 /* message_left.png in Resources */,
 				9A6E310D14253B9000CEA436 /* icon.png in Resources */,
+				9A6E3111142544A300CEA436 /* logo_small.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

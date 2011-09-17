@@ -13,6 +13,8 @@
 
 @implementation HomeController
 
+@synthesize navItem;
+
 - (void)dealloc
 {
     [super dealloc];
@@ -28,13 +30,15 @@
 
 #pragma mark - View lifecycle
 
-/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo_small"]];
+    self.navItem.titleView = imageView;    
 }
-*/
+
 
 - (void)viewDidUnload
 {
