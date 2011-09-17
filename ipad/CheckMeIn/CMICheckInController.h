@@ -1,5 +1,5 @@
 //
-//  CMICheckInController.h
+//  CheckInController.h
 //  CheckMeIn
 //
 //  Created by Antonio MENDES PINTO on 17/09/11.
@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CMICheckInController : UIViewController
+#import "MBProgressHUD.h"
+#import "ASIHTTPRequest.h"
+
+
+@interface CMICheckInController : UIViewController {
+	MBProgressHUD *HUD;
+    
+    ASIHTTPRequest *_request; 
+    
+    NSString *_accessToken;
+}
+
+@property (nonatomic, retain) NSString *accessToken;
+@property (nonatomic, retain) ASIHTTPRequest *request;
 
 @end

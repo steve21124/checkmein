@@ -8,7 +8,7 @@
 
 #import "CheckMeInAppDelegate.h"
 
-#import "CheckMeInViewController.h"
+#import "HomeController.h"
 
 #import "NSUserDefaults+Extensions.h"
 

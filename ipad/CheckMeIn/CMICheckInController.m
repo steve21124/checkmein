@@ -1,5 +1,5 @@
 //
-//  CMICheckInController.m
+//  CheckInController.m
 //  CheckMeIn
 //
 //  Created by Antonio MENDES PINTO on 17/09/11.
@@ -9,6 +9,8 @@
 #import "CMICheckInController.h"
 
 @implementation CMICheckInController
+
+@synthesize accessToken = _accessToken;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,7 +34,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+    
+    
+    
+    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
+    [self.navigationController.view addSubview:HUD];
+	
+    HUD.delegate = self;
+    HUD.labelText = @"Loading";
+    HUD.detailsLabelText = @"checking in";
+	
+    [HUD show:YES];  
 }
 
 - (void)viewDidUnload
@@ -40,6 +53,8 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

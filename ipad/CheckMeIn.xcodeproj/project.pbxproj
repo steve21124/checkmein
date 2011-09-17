@@ -14,9 +14,8 @@
 		8284AE221424C1A2000321FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8284AE211424C1A2000321FF /* main.m */; };
 		8284AE251424C1A2000321FF /* CheckMeInAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8284AE241424C1A2000321FF /* CheckMeInAppDelegate.m */; };
 		8284AE281424C1A2000321FF /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8284AE261424C1A2000321FF /* MainWindow.xib */; };
-		8284AE2B1424C1A2000321FF /* CheckMeInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8284AE2A1424C1A2000321FF /* CheckMeInViewController.m */; };
-		8284AE2E1424C1A2000321FF /* CheckMeInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8284AE2C1424C1A2000321FF /* CheckMeInViewController.xib */; };
-		9A638B5714250780005F5A6A /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A638B5614250780005F5A6A /* NSString+URLEncode.m */; };
+		8284AE2B1424C1A2000321FF /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8284AE2A1424C1A2000321FF /* HomeController.m */; };
+		8284AE2E1424C1A2000321FF /* HomeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8284AE2C1424C1A2000321FF /* HomeController.xib */; };
 		82C63AE81424D6C1001A6F9F /* Moodstocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C63AE71424D6C1001A6F9F /* Moodstocks.m */; };
 		82C63AED1424D9F7001A6F9F /* CMIScannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C63AEB1424D9F7001A6F9F /* CMIScannerController.m */; };
 		82C63AEE1424D9F7001A6F9F /* CMIScannerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82C63AEC1424D9F7001A6F9F /* CMIScannerController.xib */; };
@@ -26,6 +25,7 @@
 		82C63BC21424ED9D001A6F9F /* CMIConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C63BC11424ED9D001A6F9F /* CMIConstants.m */; };
 		82C63BC61424EF26001A6F9F /* MSAPIDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C63BC51424EF26001A6F9F /* MSAPIDecoder.m */; };
 		82C63BCA1424EFD8001A6F9F /* CMIImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C63BC91424EFD8001A6F9F /* CMIImageDecoder.m */; };
+		9A638B5714250780005F5A6A /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A638B5614250780005F5A6A /* NSString+URLEncode.m */; };
 		9A68ACB11424D4B2005AC677 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A68AC991424D4B2005AC677 /* NSObject+SBJson.m */; };
 		9A68ACB21424D4B2005AC677 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A68AC9C1424D4B2005AC677 /* SBJsonParser.m */; };
 		9A68ACB31424D4B2005AC677 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A68AC9E1424D4B2005AC677 /* SBJsonStreamParser.m */; };
@@ -39,6 +39,11 @@
 		9A68ACBB1424D4B2005AC677 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A68ACAE1424D4B2005AC677 /* SBJsonUTF8Stream.m */; };
 		9A68ACBC1424D4B2005AC677 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A68ACB01424D4B2005AC677 /* SBJsonWriter.m */; };
 		9A68ACBE1424DF2C005AC677 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A68ACBD1424DF2C005AC677 /* CoreLocation.framework */; };
+		9A73CBD814251C71000D8DED /* checkmein.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A73CBD614251C71000D8DED /* checkmein.png */; };
+		9A73CBDA14251E76000D8DED /* checkmein_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A73CBD914251E76000D8DED /* checkmein_button.png */; };
+		9A73CBE514252502000D8DED /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A73CBE414252502000D8DED /* MBProgressHUD.m */; };
+		9A73CBE914252523000D8DED /* CMICheckInController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A73CBE714252523000D8DED /* CMICheckInController.m */; };
+		9A73CBEA14252523000D8DED /* CMICheckInController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A73CBE814252523000D8DED /* CMICheckInController.xib */; };
 		9A77A5A61424C50100E7B4C9 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A77A5551424C50100E7B4C9 /* ASIAuthenticationDialog.m */; };
 		9A77A5A71424C50100E7B4C9 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A77A5581424C50100E7B4C9 /* ASIDataCompressor.m */; };
 		9A77A5A81424C50100E7B4C9 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A77A55A1424C50100E7B4C9 /* ASIDataDecompressor.m */; };
@@ -69,11 +74,9 @@
 		8284AE231424C1A2000321FF /* CheckMeInAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckMeInAppDelegate.h; sourceTree = "<group>"; };
 		8284AE241424C1A2000321FF /* CheckMeInAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckMeInAppDelegate.m; sourceTree = "<group>"; };
 		8284AE271424C1A2000321FF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		8284AE291424C1A2000321FF /* CheckMeInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckMeInViewController.h; sourceTree = "<group>"; };
-		8284AE2A1424C1A2000321FF /* CheckMeInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckMeInViewController.m; sourceTree = "<group>"; };
-		8284AE2D1424C1A2000321FF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CheckMeInViewController.xib; sourceTree = "<group>"; };
-		9A638B5514250780005F5A6A /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
-		9A638B5614250780005F5A6A /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
+		8284AE291424C1A2000321FF /* HomeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeController.h; sourceTree = "<group>"; };
+		8284AE2A1424C1A2000321FF /* HomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
+		8284AE2D1424C1A2000321FF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeController.xib; sourceTree = "<group>"; };
 		82C63AE61424D6C1001A6F9F /* Moodstocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Moodstocks.h; sourceTree = "<group>"; };
 		82C63AE71424D6C1001A6F9F /* Moodstocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Moodstocks.m; sourceTree = "<group>"; };
 		82C63AEA1424D9F7001A6F9F /* CMIScannerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIScannerController.h; sourceTree = "<group>"; };
@@ -89,6 +92,8 @@
 		82C63BC71424EF5D001A6F9F /* CMIImageDecoderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIImageDecoderDelegate.h; sourceTree = "<group>"; };
 		82C63BC81424EFD8001A6F9F /* CMIImageDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIImageDecoder.h; sourceTree = "<group>"; };
 		82C63BC91424EFD8001A6F9F /* CMIImageDecoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMIImageDecoder.m; sourceTree = "<group>"; };
+		9A638B5514250780005F5A6A /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
+		9A638B5614250780005F5A6A /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
 		9A68AC981424D4B2005AC677 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
 		9A68AC991424D4B2005AC677 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
 		9A68AC9A1424D4B2005AC677 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
@@ -115,6 +120,13 @@
 		9A68ACAF1424D4B2005AC677 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		9A68ACB01424D4B2005AC677 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		9A68ACBD1424DF2C005AC677 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9A73CBD614251C71000D8DED /* checkmein.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmein.png; sourceTree = "<group>"; };
+		9A73CBD914251E76000D8DED /* checkmein_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmein_button.png; sourceTree = "<group>"; };
+		9A73CBE314252502000D8DED /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		9A73CBE414252502000D8DED /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		9A73CBE614252523000D8DED /* CMICheckInController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = CMICheckInController.h; sourceTree = "<group>"; };
+		9A73CBE714252523000D8DED /* CMICheckInController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMICheckInController.m; sourceTree = "<group>"; };
+		9A73CBE814252523000D8DED /* CMICheckInController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMICheckInController.xib; sourceTree = "<group>"; };
 		9A77A5541424C50100E7B4C9 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		9A77A5551424C50100E7B4C9 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		9A77A5561424C50100E7B4C9 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -208,18 +220,18 @@
 		8284AE1A1424C1A2000321FF /* CheckMeIn */ = {
 			isa = PBXGroup;
 			children = (
+				9A73CBD414251C64000D8DED /* Ressources */,
 				82C63AE41424D64F001A6F9F /* Moodstocks Client */,
 				82C63BC31424EEC4001A6F9F /* Image Decoder */,
 				9A77A5DD1424C97A00E7B4C9 /* Common */,
 				9A77A5D71424C63A00E7B4C9 /* Setup */,
+				9A73CBD3142515AC000D8DED /* Home */,
 				82C63AE91424D998001A6F9F /* Scanner */,
+				9A73CBE1142524AF000D8DED /* Check In */,
 				9A77A5521424C37D00E7B4C9 /* Externals */,
 				8284AE231424C1A2000321FF /* CheckMeInAppDelegate.h */,
 				8284AE241424C1A2000321FF /* CheckMeInAppDelegate.m */,
 				8284AE261424C1A2000321FF /* MainWindow.xib */,
-				8284AE291424C1A2000321FF /* CheckMeInViewController.h */,
-				8284AE2A1424C1A2000321FF /* CheckMeInViewController.m */,
-				8284AE2C1424C1A2000321FF /* CheckMeInViewController.xib */,
 				8284AE1B1424C1A2000321FF /* Supporting Files */,
 			);
 			path = CheckMeIn;
@@ -307,9 +319,48 @@
 			name = SBJSON;
 			sourceTree = "<group>";
 		};
+		9A73CBD3142515AC000D8DED /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8284AE291424C1A2000321FF /* HomeController.h */,
+				8284AE2A1424C1A2000321FF /* HomeController.m */,
+				8284AE2C1424C1A2000321FF /* HomeController.xib */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		9A73CBD414251C64000D8DED /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				9A73CBD914251E76000D8DED /* checkmein_button.png */,
+				9A73CBD614251C71000D8DED /* checkmein.png */,
+			);
+			name = Ressources;
+			sourceTree = "<group>";
+		};
+		9A73CBE1142524AF000D8DED /* Check In */ = {
+			isa = PBXGroup;
+			children = (
+				9A73CBE614252523000D8DED /* CMICheckInController.h */,
+				9A73CBE714252523000D8DED /* CMICheckInController.m */,
+				9A73CBE814252523000D8DED /* CMICheckInController.xib */,
+			);
+			name = "Check In";
+			sourceTree = "<group>";
+		};
+		9A73CBE2142524F1000D8DED /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				9A73CBE314252502000D8DED /* MBProgressHUD.h */,
+				9A73CBE414252502000D8DED /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		9A77A5521424C37D00E7B4C9 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				9A73CBE2142524F1000D8DED /* MBProgressHUD */,
 				9A68AC961424D4A1005AC677 /* SBJSON */,
 				9A77A5D31424C5FF00E7B4C9 /* Reachability */,
 				9A77A5531424C38600E7B4C9 /* ASIHTTPRequest */,
@@ -429,9 +480,12 @@
 			files = (
 				8284AE1F1424C1A2000321FF /* InfoPlist.strings in Resources */,
 				8284AE281424C1A2000321FF /* MainWindow.xib in Resources */,
-				8284AE2E1424C1A2000321FF /* CheckMeInViewController.xib in Resources */,
+				8284AE2E1424C1A2000321FF /* HomeController.xib in Resources */,
 				9A77A5DC1424C6A000E7B4C9 /* CMISetupController.xib in Resources */,
 				82C63AEE1424D9F7001A6F9F /* CMIScannerController.xib in Resources */,
+				9A73CBD814251C71000D8DED /* checkmein.png in Resources */,
+				9A73CBDA14251E76000D8DED /* checkmein_button.png in Resources */,
+				9A73CBEA14252523000D8DED /* CMICheckInController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,7 +498,7 @@
 			files = (
 				8284AE221424C1A2000321FF /* main.m in Sources */,
 				8284AE251424C1A2000321FF /* CheckMeInAppDelegate.m in Sources */,
-				8284AE2B1424C1A2000321FF /* CheckMeInViewController.m in Sources */,
+				8284AE2B1424C1A2000321FF /* HomeController.m in Sources */,
 				9A77A5A61424C50100E7B4C9 /* ASIAuthenticationDialog.m in Sources */,
 				9A77A5A71424C50100E7B4C9 /* ASIDataCompressor.m in Sources */,
 				9A77A5A81424C50100E7B4C9 /* ASIDataDecompressor.m in Sources */,
@@ -474,6 +528,8 @@
 				82C63BC21424ED9D001A6F9F /* CMIConstants.m in Sources */,
 				82C63BC61424EF26001A6F9F /* MSAPIDecoder.m in Sources */,
 				82C63BCA1424EFD8001A6F9F /* CMIImageDecoder.m in Sources */,
+				9A73CBE514252502000D8DED /* MBProgressHUD.m in Sources */,
+				9A73CBE914252523000D8DED /* CMICheckInController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,12 +552,12 @@
 			name = MainWindow.xib;
 			sourceTree = "<group>";
 		};
-		8284AE2C1424C1A2000321FF /* CheckMeInViewController.xib */ = {
+		8284AE2C1424C1A2000321FF /* HomeController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8284AE2D1424C1A2000321FF /* en */,
 			);
-			name = CheckMeInViewController.xib;
+			name = HomeController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

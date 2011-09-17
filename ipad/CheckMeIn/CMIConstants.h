@@ -11,3 +11,10 @@
  */
 extern NSString* const kCMIMoodstocksKey;
 extern NSString* const kCMIMoodstocksSecret;
+
+/**
+ * FOURSQUARE
+ */
+extern NSString* const kCMI4qClientId;
+extern NSString* const kCMI4qClientSecret;
+extern NSString* const kCMI4qVersion;

@@ -12,9 +12,7 @@
 #import "NSString+URLEncode.h"
 #import "NSUserDefaults+Extensions.h"
 
-#define kClientId @"C1SHDVNYKKK44GVVGR3JPXN13RZC1TL40ZHAIBCBBYTV3343"
-#define kClientSecret @"50CNMBWDVHLPT1LUA54KXFOYROOPL55MX1PCH1HC0ZFEAYVI"
-#define kClient4qVersion @"20110917"
+#import "CMIConstants.h"
 
 @implementation CMISetupController
 
@@ -174,6 +172,8 @@
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
         ud.foursquareVenueId = [selectedVenue valueForKey:@"id"];
         [ud synchronize];
+        
+        [self dismissModalViewControllerAnimated:YES];
     }
 } 
 
@@ -186,9 +186,9 @@
 
     
     // Get the geoloc of the user
-    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?query=%@&ll=%lf,%lf&client_id=%@&client_secret=%@&v=%@", [self.searchField.text urlEncode], ll.latitude, ll.longitude, kClientId, kClientSecret, kClient4qVersion];
+    //NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?query=%@&ll=%lf,%lf&client_id=%@&client_secret=%@&v=%@", [self.searchField.text urlEncode], ll.latitude, ll.longitude, kCMI4qClientId, kCMI4qClientSecret, kCMI4qVersion];
 
-    //NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?query=%@&ll=%lf,%lf&client_id=%@&client_secret=%@&v=%@", [self.searchField.text urlEncode], 48.869449359999997, 2.3415347299999998, kClientId, kClientSecret, kClient4qVersion];
+    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?query=%@&ll=%lf,%lf&client_id=%@&client_secret=%@&v=%@", [self.searchField.text urlEncode], 48.869449359999997, 2.3415347299999998, kCMI4qClientId, kCMI4qClientSecret, kCMI4qVersion];
     
     NSURL *searchURL = [NSURL URLWithString: urlString];
     

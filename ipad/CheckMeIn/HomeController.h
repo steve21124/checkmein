@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CheckMeInViewController : UIViewController {
+@interface HomeController : UIViewController {
     
 }
+
+- (IBAction)touched:(id)sender;
 
 @end

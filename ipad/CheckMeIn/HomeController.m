@@ -6,9 +6,11 @@
 //  Copyright 2011 Moodstocks. All rights reserved.
 //
 
-#import "CheckMeInViewController.h"
+#import "HomeController.h"
 
-@implementation CheckMeInViewController
+#import "CMIScannerController.h"
+
+@implementation HomeController
 
 - (void)dealloc
 {
@@ -44,6 +46,16 @@
 {
     // Return YES for supported orientations
     return YES;
+}
+
+#pragma mark - Actions
+
+- (IBAction)touched:(id)sender {
+    CMIScannerController *scanner = [[CMIScannerController alloc] initWithNibName:@"CMIScannerController" bundle:nil];
+    
+    scanner.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    [self presentModalViewController:scanner animated:YES];
 }
 
 @end

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class CheckMeInViewController;
+@class HomeController;
 
 @interface CheckMeInAppDelegate : NSObject <UIApplicationDelegate> {
 
@@ -16,6 +16,6 @@
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
-@property (nonatomic, retain) IBOutlet CheckMeInViewController *viewController;
+@property (nonatomic, retain) IBOutlet HomeController *viewController;
 
 @end
