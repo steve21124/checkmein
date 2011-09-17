@@ -214,6 +214,7 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
 @synthesize captureSession;
 @synthesize previewLayer;
 #endif
+@synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -228,6 +229,7 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
 - (void)dealloc
 {
     [self stopCapture];
+    _delegate = nil;
     
     [super dealloc];
 }
@@ -331,13 +333,9 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
                      }
     ];
     
-    /* DEBUG ONLY */
-    [[[[UIAlertView alloc] initWithTitle:@"Match found"
-                                 message:[NSString stringWithFormat:@"id: %@", uid]
-                                delegate:nil
-                       cancelButtonTitle:@"OK"
-                       otherButtonTitles:nil] autorelease] show];
-    /* DEBUG ONLY */
+    if ([_delegate respondsToSelector:@selector(scannerController:didFound:)]) {
+        [_delegate scannerController:self didFound:uid];
+    }
 }
 
 @end
