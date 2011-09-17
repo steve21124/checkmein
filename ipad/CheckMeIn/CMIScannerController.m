@@ -55,6 +55,7 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
 - (void)stopCapture;
 - (BOOL)shouldDecodeImage;
 - (void)showLaser;
+- (void)hideLaser;
 
 @end
 
@@ -194,6 +195,15 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
     [laserView release];
 }
 
+- (void)hideLaser {
+    CMILaserView* laserView = nil;
+    for (UIView *v in [_videoPreviewView subviews]) {
+        if ([v isKindOfClass:[CMILaserView class]])
+            laserView = (CMILaserView*) v;
+    }
+    [laserView removeFromSuperview];
+}
+
 @end
 
 
@@ -210,6 +220,7 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _lastRequestAt = -1;
+        _processFrames = YES;
     }
     return self;
 }
@@ -273,6 +284,9 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
 
 #if MS_HAS_AVFF
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
+    if (!_processFrames)
+        return;
+    
     CGImageRef imageRef = CMICreateImageFromSampleBuffer(sampleBuffer);
     UIImage *image = [[UIImage alloc] initWithCGImage:imageRef];
     
@@ -295,7 +309,24 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
 }
 
 - (void)decoder:(CMIImageDecoder *)decoder didDecodeImage:(UIImage *)image withResult:(NSString *)uid {
-    [self stopCapture];
+    [self hideLaser];
+    
+    // Flash effect
+    UIView* flashView = [[UIView alloc] initWithFrame:[_videoPreviewView frame]];
+    [flashView setBackgroundColor:[UIColor whiteColor]];
+    [[[self view] window] addSubview:flashView];
+    
+    [UIView animateWithDuration:.4f
+                     animations:^{
+                         [flashView setAlpha:0.f];
+                     }
+                     completion:^(BOOL finished){
+                         [flashView removeFromSuperview];
+                         [flashView release];
+                     }
+    ];
+    
+    _processFrames = NO;
     
     /* DEBUG ONLY */
     [[[[UIAlertView alloc] initWithTitle:@"Match found"
