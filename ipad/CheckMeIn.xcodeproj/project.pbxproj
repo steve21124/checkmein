@@ -336,6 +336,13 @@
 			name = SBJSON;
 			sourceTree = "<group>";
 		};
+		9A6E31011425332D00CEA436 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 		9A73CBD3142515AC000D8DED /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -377,6 +384,7 @@
 		9A77A5521424C37D00E7B4C9 /* Externals */ = {
 			isa = PBXGroup;
 			children = (
+				9A6E31011425332D00CEA436 /* New Group */,
 				9A73CBE2142524F1000D8DED /* MBProgressHUD */,
 				9A68AC961424D4A1005AC677 /* SBJSON */,
 				9A77A5D31424C5FF00E7B4C9 /* Reachability */,

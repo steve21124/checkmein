@@ -11,6 +11,7 @@
 @implementation CMICheckInController
 
 @synthesize accessToken = _accessToken;
+@synthesize request = _request;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,7 +43,7 @@
     HUD.labelText = @"Loading";
     HUD.detailsLabelText = @"checking in";
 	
-    [HUD show:YES];  
+    [HUD show:YES];    
 }
 
 - (void)viewDidUnload
@@ -68,6 +69,49 @@
     [HUD removeFromSuperview];
     [HUD release];
 	HUD = nil;
+}
+
+#pragma Loading functions
+
+- (void) checkin {
+    //NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?query=%@&ll=%lf,%lf&client_id=%@&client_secret=%@&v=%@", , , , kCMI4qClientId, kCMI4qClientSecret, kCMI4qVersion];
+    
+    //NSURL *url = [NSURL URLWithString: urlString];
+
+    //self.request = [ASIHTTPRequest requestWithURL:url];
+    //[self.request setDelegate:self];
+    
+    //[self.request startAsynchronous];    
+    
+    // Finished ..
+    HUD.labelText = @"Loading infos";
+
+}
+
+- (void) loadInfos {
+    //NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?query=%@&ll=%lf,%lf&client_id=%@&client_secret=%@&v=%@", , , , kCMI4qClientId, kCMI4qClientSecret, kCMI4qVersion];
+    
+    //NSURL *url = [NSURL URLWithString: urlString];
+    
+    //self.request = [ASIHTTPRequest requestWithURL:url];
+    //[self.request setDelegate:self];
+    
+    //[self.request startAsynchronous];
+}
+
+#pragma ASIHTTPRequest delegate
+
+- (void)requestFinished:(ASIHTTPRequest *)request
+{
+    // Use when fetching text data
+    NSString *responseString = [request responseString];
+    
+    id results = [responseString JSONValue];
+}
+
+- (void)requestFailed:(ASIHTTPRequest *)request
+{
+    NSError *error = [request error];
 }
 
 @end

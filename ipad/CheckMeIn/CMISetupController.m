@@ -208,8 +208,6 @@
     NSDictionary *results = [responseString JSONValue];
     self.venues = [[results valueForKey:@"response"] valueForKey:@"venues"];
     
-    // TODO : reload data in here
-    NSLog(responseString);
     [self.resultsTV reloadData];
 }
 
