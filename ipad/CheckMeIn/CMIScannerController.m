@@ -12,6 +12,8 @@
 #import "CMIConstants.h"
 #import "MSAPIDecoder.h"
 
+static const NSUInteger kCMIScannerTimeout = 15;  // seconds before giving up
+
 #if MS_HAS_AVFF
 /* Adapted from http://developer.apple.com/library/ios/#qa/qa1702/_index.html */
 CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
@@ -220,6 +222,7 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        _startedAt = [[NSDate date] timeIntervalSince1970];
         _lastRequestAt = -1;
         _done = NO;
     }
@@ -288,6 +291,18 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
     if (_done)
         return;
+    
+    NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
+    if (now - _startedAt >= kCMIScannerTimeout) {
+        _done = YES;
+        
+        CFRunLoopPerformBlock(CFRunLoopGetMain(), kCFRunLoopCommonModes, ^(void) {
+            [self hideLaser];
+            [self dismissModalViewControllerAnimated:YES];
+        });
+        
+        return;
+    }
     
     CGImageRef imageRef = CMICreateImageFromSampleBuffer(sampleBuffer);
     UIImage *image = [[UIImage alloc] initWithCGImage:imageRef];

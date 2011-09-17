@@ -32,6 +32,7 @@
 #endif
     
     // Querying logic
+    NSTimeInterval   _startedAt;
     NSTimeInterval   _lastRequestAt;
     BOOL             _done;
     
