@@ -31,7 +31,7 @@
     
     // Querying logic
     NSTimeInterval   _lastRequestAt;
-    BOOL             _processFrames;
+    BOOL             _done;
 }
 
 @property (nonatomic, retain) UIView *videoPreviewView;
