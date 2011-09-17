@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CMIScannerController.h"
 
-@interface HomeController : UIViewController {
+@interface HomeController : UIViewController<CMIScannerControllerDelegate> {
     
 }
 
 - (IBAction)touched:(id)sender;
+
+-(void) scannerController:(CMIScannerController *)scanner didFound:(NSString *)authToken;
 
 @end
