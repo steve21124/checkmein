@@ -17,6 +17,8 @@
 		8284AE2B1424C1A2000321FF /* CheckMeInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8284AE2A1424C1A2000321FF /* CheckMeInViewController.m */; };
 		8284AE2E1424C1A2000321FF /* CheckMeInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8284AE2C1424C1A2000321FF /* CheckMeInViewController.xib */; };
 		82C63AE81424D6C1001A6F9F /* Moodstocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C63AE71424D6C1001A6F9F /* Moodstocks.m */; };
+		82C63AED1424D9F7001A6F9F /* CMIScannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C63AEB1424D9F7001A6F9F /* CMIScannerController.m */; };
+		82C63AEE1424D9F7001A6F9F /* CMIScannerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82C63AEC1424D9F7001A6F9F /* CMIScannerController.xib */; };
 		9A68ACB11424D4B2005AC677 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A68AC991424D4B2005AC677 /* NSObject+SBJson.m */; };
 		9A68ACB21424D4B2005AC677 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A68AC9C1424D4B2005AC677 /* SBJsonParser.m */; };
 		9A68ACB31424D4B2005AC677 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A68AC9E1424D4B2005AC677 /* SBJsonStreamParser.m */; };
@@ -64,6 +66,9 @@
 		8284AE2D1424C1A2000321FF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CheckMeInViewController.xib; sourceTree = "<group>"; };
 		82C63AE61424D6C1001A6F9F /* Moodstocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Moodstocks.h; sourceTree = "<group>"; };
 		82C63AE71424D6C1001A6F9F /* Moodstocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Moodstocks.m; sourceTree = "<group>"; };
+		82C63AEA1424D9F7001A6F9F /* CMIScannerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIScannerController.h; sourceTree = "<group>"; };
+		82C63AEB1424D9F7001A6F9F /* CMIScannerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMIScannerController.m; sourceTree = "<group>"; };
+		82C63AEC1424D9F7001A6F9F /* CMIScannerController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMIScannerController.xib; sourceTree = "<group>"; };
 		9A68AC981424D4B2005AC677 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
 		9A68AC991424D4B2005AC677 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
 		9A68AC9A1424D4B2005AC677 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
@@ -177,6 +182,7 @@
 				82C63AE41424D64F001A6F9F /* Moodstocks Client */,
 				9A77A5DD1424C97A00E7B4C9 /* Common */,
 				9A77A5D71424C63A00E7B4C9 /* Setup */,
+				82C63AE91424D998001A6F9F /* Scanner */,
 				9A77A5521424C37D00E7B4C9 /* Externals */,
 				8284AE231424C1A2000321FF /* CheckMeInAppDelegate.h */,
 				8284AE241424C1A2000321FF /* CheckMeInAppDelegate.m */,
@@ -207,6 +213,16 @@
 				82C63AE71424D6C1001A6F9F /* Moodstocks.m */,
 			);
 			name = "Moodstocks Client";
+			sourceTree = "<group>";
+		};
+		82C63AE91424D998001A6F9F /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				82C63AEA1424D9F7001A6F9F /* CMIScannerController.h */,
+				82C63AEB1424D9F7001A6F9F /* CMIScannerController.m */,
+				82C63AEC1424D9F7001A6F9F /* CMIScannerController.xib */,
+			);
+			name = Scanner;
 			sourceTree = "<group>";
 		};
 		9A68AC961424D4A1005AC677 /* SBJSON */ = {
@@ -361,6 +377,7 @@
 				8284AE281424C1A2000321FF /* MainWindow.xib in Resources */,
 				8284AE2E1424C1A2000321FF /* CheckMeInViewController.xib in Resources */,
 				9A77A5DC1424C6A000E7B4C9 /* CMISetupController.xib in Resources */,
+				82C63AEE1424D9F7001A6F9F /* CMIScannerController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,6 +415,7 @@
 				9A68ACBB1424D4B2005AC677 /* SBJsonUTF8Stream.m in Sources */,
 				9A68ACBC1424D4B2005AC677 /* SBJsonWriter.m in Sources */,
 				82C63AE81424D6C1001A6F9F /* Moodstocks.m in Sources */,
+				82C63AED1424D9F7001A6F9F /* CMIScannerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
