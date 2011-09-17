@@ -12,6 +12,9 @@
 
 @synthesize accessToken = _accessToken;
 @synthesize request = _request;
+@synthesize imageView;
+@synthesize tipsTableView;
+@synthesize title, description;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,14 +39,11 @@
 {
     [super viewDidLoad];
     
-    HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-    [self.navigationController.view addSubview:HUD];
-	
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
     HUD.delegate = self;
-    HUD.labelText = @"Loading";
-    HUD.detailsLabelText = @"checking in";
-	
-    [HUD show:YES];    
+    [self.view addSubview:HUD];
+    
+    [self checkin];
 }
 
 - (void)viewDidUnload
@@ -84,8 +84,10 @@
     //[self.request startAsynchronous];    
     
     // Finished ..
-    HUD.labelText = @"Loading infos";
-
+    HUD.labelText = @"Loading";
+    HUD.detailsLabelText = @"checking in";
+	
+    [HUD show:YES];    
 }
 
 - (void) loadInfos {
@@ -97,6 +99,88 @@
     //[self.request setDelegate:self];
     
     //[self.request startAsynchronous];
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    // Return the number of rows in the section.
+    return 0;
+    //return [self.venues count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+    }
+    
+    // Configure the cell...
+    /*
+    cell.textLabel.text = [[self.venues objectAtIndex:indexPath.row] valueForKey:@"name"];
+    
+    NSString *location = [[self.venues objectAtIndex:indexPath.row] valueForKey:@"location"];
+    if (location) {
+        cell.detailTextLabel.text = [location valueForKey:@"address"];
+    }
+    */
+    return cell;
+}
+
+/*
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+ */
+
+/*
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+ // Delete the row from the data source
+ [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ }   
+ else if (editingStyle == UITableViewCellEditingStyleInsert) {
+ // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+ }   
+ }
+ */
+
+/*
+ // Override to support rearranging the table view.
+ - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+ {
+ }
+ */
+
+/*
+ // Override to support conditional rearranging of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+ {
+ // Return NO if you do not want the item to be re-orderable.
+ return YES;
+ }
+ */
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+
 }
 
 #pragma ASIHTTPRequest delegate

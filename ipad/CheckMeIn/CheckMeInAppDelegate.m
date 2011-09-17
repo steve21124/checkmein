@@ -14,6 +14,8 @@
 
 #import "CMISetupController.h"
 
+#import "CMICheckInController.h"
+
 @implementation CheckMeInAppDelegate
 
 
@@ -34,8 +36,7 @@
         
         [self.viewController presentModalViewController:setupController animated:NO];
     }
-    
-    
+        
     return YES;
 }
 
