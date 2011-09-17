@@ -55,9 +55,12 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
 #endif
 - (void)startCapture;
 - (void)stopCapture;
+- (void)enableScanning:(BOOL)enable;
 - (BOOL)shouldDecodeImage;
 - (void)showLaser;
 - (void)hideLaser;
+- (void)applicationDidEnterBackground;
+- (void)applicationWillEnterForeground;
 
 @end
 
@@ -94,6 +97,9 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
 #endif
 
 - (void)startCapture {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
+    
 #if MS_HAS_AVFF
     // Set torch and flash mode to auto
 	if ([[self frontFacingCamera] hasFlash]) {
@@ -159,7 +165,7 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
      
     [self.captureSession startRunning];
     
-    [self showLaser];
+    [self enableScanning:YES];
 #endif
 }
 
@@ -177,7 +183,28 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
     self.previewLayer = nil;
     
     self.captureSession = nil;
+    
+    [self enableScanning:NO];
 #endif
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidEnterBackgroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillEnterForegroundNotification object:nil];
+}
+
+- (void)enableScanning:(BOOL)enable {
+    if (enable) {
+        _startedAt = [[NSDate date] timeIntervalSince1970];
+        _lastRequestAt = -1.0;
+        CFRunLoopPerformBlock(CFRunLoopGetMain(), kCFRunLoopCommonModes, ^(void) {
+            [self showLaser];
+        }); 
+    }
+    else {
+        [Moodstocks cancelAllOperations];
+        CFRunLoopPerformBlock(CFRunLoopGetMain(), kCFRunLoopCommonModes, ^(void) {
+            [self hideLaser];
+        });
+    }
 }
 
 - (BOOL)shouldDecodeImage {
@@ -204,6 +231,14 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
             laserView = (CMILaserView*) v;
     }
     [laserView removeFromSuperview];
+}
+
+- (void)applicationDidEnterBackground {
+    [self enableScanning:NO];
+}
+
+- (void)applicationWillEnterForeground {
+    [self enableScanning:YES];
 }
 
 @end
@@ -331,9 +366,7 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
     
     _done = YES;
     
-    [Moodstocks cancelAllOperations];
-    
-    [self hideLaser];
+    [self enableScanning:NO];
     
     // Flash effect
     UIView* flashView = [[UIView alloc] initWithFrame:[_videoPreviewView frame]];
