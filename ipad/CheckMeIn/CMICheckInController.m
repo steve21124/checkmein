@@ -41,6 +41,7 @@
     
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
     HUD.delegate = self;
+        
     [self.view addSubview:HUD];
     
     [self checkin];
@@ -57,8 +58,7 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
-	return YES;
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 #pragma mark -
