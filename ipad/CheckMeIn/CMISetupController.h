@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ASIHTTPRequest.h"
 
-@interface CMISetupController : UIViewController
+
+@interface CMISetupController : UIViewController<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate> {
+    // The request to communicate with the server
+    ASIHTTPRequest *_request;    
+}
+
+@property (nonatomic, retain) ASIHTTPRequest *request;
+@property (nonatomic, retain) NSURL *url;
 
 @end
