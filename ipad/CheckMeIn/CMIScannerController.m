@@ -220,7 +220,7 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _lastRequestAt = -1;
-        _processFrames = YES;
+        _done = NO;
     }
     return self;
 }
@@ -284,7 +284,7 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
 
 #if MS_HAS_AVFF
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
-    if (!_processFrames)
+    if (_done)
         return;
     
     CGImageRef imageRef = CMICreateImageFromSampleBuffer(sampleBuffer);
@@ -309,6 +309,11 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
 }
 
 - (void)decoder:(CMIImageDecoder *)decoder didDecodeImage:(UIImage *)image withResult:(NSString *)uid {
+    if (_done)
+        return;
+    
+    _done = YES;
+    
     [self hideLaser];
     
     // Flash effect
@@ -325,8 +330,6 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
                          [flashView release];
                      }
     ];
-    
-    _processFrames = NO;
     
     /* DEBUG ONLY */
     [[[[UIAlertView alloc] initWithTitle:@"Match found"
