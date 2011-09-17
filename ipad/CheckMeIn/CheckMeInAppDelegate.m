@@ -10,6 +10,10 @@
 
 #import "CheckMeInViewController.h"
 
+#import "NSUserDefaults+Extensions.h"
+
+#import "CMISetupController.h"
+
 @implementation CheckMeInAppDelegate
 
 
@@ -19,10 +23,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-     
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    
+    if (ud.foursquareVenueId == nil) {
+        CMISetupController *setupController = [[CMISetupController alloc] initWithNibName:@"CMISetupController" bundle:nil];
+        
+        [self.viewController presentModalViewController:setupController animated:NO];
+    }
+    
+    
     return YES;
 }
 

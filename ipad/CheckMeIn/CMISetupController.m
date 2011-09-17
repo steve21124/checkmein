@@ -7,10 +7,22 @@
 //
 
 #import "CMISetupController.h"
+#import "SBJson.h"
+
+#import "NSString+URLEncode.h"
+#import "NSUserDefaults+Extensions.h"
+
+#define kClientId @"C1SHDVNYKKK44GVVGR3JPXN13RZC1TL40ZHAIBCBBYTV3343"
+#define kClientSecret @"50CNMBWDVHLPT1LUA54KXFOYROOPL55MX1PCH1HC0ZFEAYVI"
+#define kClient4qVersion @"20110917"
 
 @implementation CMISetupController
 
 @synthesize request = _request;
+@synthesize searchField = _searchField;
+@synthesize locMgr = _locMgr;
+@synthesize venues = _venues;
+@synthesize resultsTV;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,7 +42,10 @@
 }
 
 - (void) dealloc {
+    [super dealloc];
+    
     [_request release];
+    [_locMgr release];
 }
 
 #pragma mark - View lifecycle
@@ -39,8 +54,11 @@
 {
     [super viewDidLoad];
 
-    // Setting up request url
-    self.request = [ASIHTTPRequest requestWithURL:self.url];
+    self.locMgr = [[CLLocationManager alloc] init];
+    self.locMgr.delegate = self;
+    self.locMgr.distanceFilter = kCLDistanceFilterNone; // whenever we move
+    self.locMgr.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
+    [self.locMgr startUpdatingLocation];    
 }
 
 - (void)viewDidUnload
@@ -60,16 +78,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.venues count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -78,10 +94,16 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
     // Configure the cell...
+    cell.textLabel.text = [[self.venues objectAtIndex:indexPath.row] valueForKey:@"name"];
+    
+    NSString *location = [[self.venues objectAtIndex:indexPath.row] valueForKey:@"location"];
+    if (location) {
+        cell.detailTextLabel.text = [location valueForKey:@"address"];
+    }
     
     return cell;
 }
@@ -129,28 +151,50 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    selectedVenue = [self.venues objectAtIndex:indexPath.row];
+    
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:[selectedVenue valueForKey:@"name"]
+                                                      message:@"Is this really your place ?"  
+                                                     delegate:nil  
+                                            cancelButtonTitle:@"No"  
+                                            otherButtonTitles:@"Yes !", nil];  
+    
+    message.delegate = self;
+    
+    [message show];  
+    
+    [message release]; 
 }
 
-#pragma mark - UITextField delegate
+#pragma mark - Alert delegate
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
-    [self.request cancel];
-    
-    NSString *query = textField.text;
-    
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://foursquare.com/venue/search/%@", query]];
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex  
+{  
+    if (buttonIndex == 1) {        
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        ud.foursquareVenueId = [selectedVenue valueForKey:@"id"];
+        [ud synchronize];
+    }
+} 
 
-    self.request.url = url;
+#pragma mark - Actions
+
+-(IBAction)search:(id)sender;
+{    
+    if (self.request != nil)
+        [self.request cancel];
+
     
+    // Get the geoloc of the user
+    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?query=%@&ll=%lf,%lf&client_id=%@&client_secret=%@&v=%@", [self.searchField.text urlEncode], ll.latitude, ll.longitude, kClientId, kClientSecret, kClient4qVersion];
+
+    //NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?query=%@&ll=%lf,%lf&client_id=%@&client_secret=%@&v=%@", [self.searchField.text urlEncode], 48.869449359999997, 2.3415347299999998, kClientId, kClientSecret, kClient4qVersion];
+    
+    NSURL *searchURL = [NSURL URLWithString: urlString];
+    
+    self.request = [ASIHTTPRequest requestWithURL:searchURL];
     [self.request setDelegate:self];
+    
     [self.request startAsynchronous];
 }
 
@@ -161,12 +205,31 @@
     // Use when fetching text data
     NSString *responseString = [request responseString];
     
+    NSDictionary *results = [responseString JSONValue];
+    self.venues = [[results valueForKey:@"response"] valueForKey:@"venues"];
+    
     // TODO : reload data in here
+    NSLog(responseString);
+    [self.resultsTV reloadData];
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
     NSError *error = [request error];
+}
+
+#pragma mark - Core Location delegate
+
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation
+{    
+    ll = [newLocation coordinate];
+}
+
+- (void)locationError:(NSError *)error 
+{
+	//locLabel.text = [error description];
 }
 
 @end
