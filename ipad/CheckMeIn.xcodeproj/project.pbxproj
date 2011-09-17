@@ -16,6 +16,10 @@
 		8284AE281424C1A2000321FF /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8284AE261424C1A2000321FF /* MainWindow.xib */; };
 		8284AE2B1424C1A2000321FF /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8284AE2A1424C1A2000321FF /* HomeController.m */; };
 		8284AE2E1424C1A2000321FF /* HomeController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8284AE2C1424C1A2000321FF /* HomeController.xib */; };
+		8284AE2B1424C1A2000321FF /* CheckMeInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8284AE2A1424C1A2000321FF /* CheckMeInViewController.m */; };
+		8284AE2E1424C1A2000321FF /* CheckMeInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8284AE2C1424C1A2000321FF /* CheckMeInViewController.xib */; };
+		8291228E14251DA900BC8FDD /* CMILaserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8291228D14251DA900BC8FDD /* CMILaserView.m */; };
+		8291229014251EB400BC8FDD /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8291228F14251EB400BC8FDD /* QuartzCore.framework */; };
 		82C63AE81424D6C1001A6F9F /* Moodstocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C63AE71424D6C1001A6F9F /* Moodstocks.m */; };
 		82C63AED1424D9F7001A6F9F /* CMIScannerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82C63AEB1424D9F7001A6F9F /* CMIScannerController.m */; };
 		82C63AEE1424D9F7001A6F9F /* CMIScannerController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82C63AEC1424D9F7001A6F9F /* CMIScannerController.xib */; };
@@ -77,6 +81,12 @@
 		8284AE291424C1A2000321FF /* HomeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeController.h; sourceTree = "<group>"; };
 		8284AE2A1424C1A2000321FF /* HomeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeController.m; sourceTree = "<group>"; };
 		8284AE2D1424C1A2000321FF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeController.xib; sourceTree = "<group>"; };
+		8284AE291424C1A2000321FF /* CheckMeInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckMeInViewController.h; sourceTree = "<group>"; };
+		8284AE2A1424C1A2000321FF /* CheckMeInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CheckMeInViewController.m; sourceTree = "<group>"; };
+		8284AE2D1424C1A2000321FF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CheckMeInViewController.xib; sourceTree = "<group>"; };
+		8291228C14251DA900BC8FDD /* CMILaserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMILaserView.h; sourceTree = "<group>"; };
+		8291228D14251DA900BC8FDD /* CMILaserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMILaserView.m; sourceTree = "<group>"; };
+		8291228F14251EB400BC8FDD /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		82C63AE61424D6C1001A6F9F /* Moodstocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Moodstocks.h; sourceTree = "<group>"; };
 		82C63AE71424D6C1001A6F9F /* Moodstocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Moodstocks.m; sourceTree = "<group>"; };
 		82C63AEA1424D9F7001A6F9F /* CMIScannerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIScannerController.h; sourceTree = "<group>"; };
@@ -165,6 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8291229014251EB400BC8FDD /* QuartzCore.framework in Frameworks */,
 				9A68ACBE1424DF2C005AC677 /* CoreLocation.framework in Frameworks */,
 				82C63AFC1424E547001A6F9F /* CoreMedia.framework in Frameworks */,
 				82C63AFA1424DE74001A6F9F /* CoreVideo.framework in Frameworks */,
@@ -185,6 +196,7 @@
 		8284AE051424C1A2000321FF = {
 			isa = PBXGroup;
 			children = (
+				8291228F14251EB400BC8FDD /* QuartzCore.framework */,
 				9A68ACBD1424DF2C005AC677 /* CoreLocation.framework */,
 				82C63AFB1424E547001A6F9F /* CoreMedia.framework */,
 				82C63AF91424DE74001A6F9F /* CoreVideo.framework */,
@@ -248,6 +260,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8291228A14251CE400BC8FDD /* Laser Effect */ = {
+			isa = PBXGroup;
+			children = (
+				8291228C14251DA900BC8FDD /* CMILaserView.h */,
+				8291228D14251DA900BC8FDD /* CMILaserView.m */,
+			);
+			name = "Laser Effect";
+			sourceTree = "<group>";
+		};
 		82C63AE41424D64F001A6F9F /* Moodstocks Client */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +281,7 @@
 		82C63AE91424D998001A6F9F /* Scanner */ = {
 			isa = PBXGroup;
 			children = (
+				8291228A14251CE400BC8FDD /* Laser Effect */,
 				82C63AEA1424D9F7001A6F9F /* CMIScannerController.h */,
 				82C63AEB1424D9F7001A6F9F /* CMIScannerController.m */,
 				82C63AEC1424D9F7001A6F9F /* CMIScannerController.xib */,
@@ -530,6 +552,7 @@
 				82C63BCA1424EFD8001A6F9F /* CMIImageDecoder.m in Sources */,
 				9A73CBE514252502000D8DED /* MBProgressHUD.m in Sources */,
 				9A73CBE914252523000D8DED /* CMICheckInController.m in Sources */,
+				8291228E14251DA900BC8FDD /* CMILaserView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

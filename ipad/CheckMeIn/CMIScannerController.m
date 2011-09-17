@@ -8,6 +8,7 @@
 
 #import "CMIScannerController.h"
 
+#import "CMILaserView.h"
 #import "CMIConstants.h"
 #import "MSAPIDecoder.h"
 
@@ -53,6 +54,7 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
 - (void)startCapture;
 - (void)stopCapture;
 - (BOOL)shouldDecodeImage;
+- (void)showLaser;
 
 @end
 
@@ -152,7 +154,9 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
     [viewLayer insertSublayer:self.previewLayer below:[[viewLayer sublayers] objectAtIndex:0]];
 
      
-    [self.captureSession startRunning];    
+    [self.captureSession startRunning];
+    
+    [self showLaser];
 #endif
 }
 
@@ -182,6 +186,12 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
     }
     
     return decode;
+}
+
+- (void)showLaser {
+    CMILaserView *laserView = [[CMILaserView alloc] initWithFrame:_videoPreviewView.bounds];
+    [_videoPreviewView addSubview:laserView];
+    [laserView release];
 }
 
 @end
