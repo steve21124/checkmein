@@ -12,7 +12,7 @@
 #import "ASIHTTPRequest.h"
 
 
-@interface CMICheckInController : UIViewController {
+@interface CMICheckInController : UIViewController<MBProgressHUDDelegate> {
 	MBProgressHUD *HUD;
     
     ASIHTTPRequest *_request; 
