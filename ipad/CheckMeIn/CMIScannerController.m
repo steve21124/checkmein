@@ -134,6 +134,23 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
     
     [newVideoInput release];
     [newCaptureOutput release];
+    
+    // == VIDEO PREVIEW SETUP
+    if (!self.previewLayer)
+        self.previewLayer = [AVCaptureVideoPreviewLayer layerWithSession:self.captureSession];
+    
+    CALayer* viewLayer = [_videoPreviewView layer];
+    [viewLayer setMasksToBounds:YES];
+    
+    [self.previewLayer setFrame:[_videoPreviewView bounds]];
+    
+    // NOTE: we force landscape right orientation (see Info.plist)
+    if ([self.previewLayer isOrientationSupported])
+        [self.previewLayer setOrientation:AVCaptureVideoOrientationPortrait];
+    [self.previewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+    
+    [viewLayer insertSublayer:self.previewLayer below:[[viewLayer sublayers] objectAtIndex:0]];
+
      
     [self.captureSession startRunning];    
 #endif
@@ -148,6 +165,9 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
     
     AVCaptureVideoDataOutput* output = (AVCaptureVideoDataOutput*) [captureSession.outputs objectAtIndex:0];
     [captureSession removeOutput:output];
+    
+    [self.previewLayer removeFromSuperlayer];   
+    self.previewLayer = nil;
     
     self.captureSession = nil;
 #endif
@@ -169,8 +189,10 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
 
 @implementation CMIScannerController
 
+@synthesize videoPreviewView = _videoPreviewView;
 #if MS_HAS_AVFF
 @synthesize captureSession;
+@synthesize previewLayer;
 #endif
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -199,6 +221,16 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
 
 #pragma mark - View lifecycle
 
+- (void)loadView {
+    [super loadView];
+    
+    _videoPreviewView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    _videoPreviewView.backgroundColor = [UIColor blackColor];
+    _videoPreviewView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
+    _videoPreviewView.autoresizesSubviews = YES;
+    [self.view addSubview:_videoPreviewView];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -210,6 +242,9 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    
+    [_videoPreviewView release];
+    _videoPreviewView = nil;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
