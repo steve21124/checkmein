@@ -14,4 +14,6 @@
 
 @property (nonatomic, retain) IBOutlet UINavigationItem *navItem;
 
+- (IBAction)suscribeToCMI:(id)sender;
+
 @end
