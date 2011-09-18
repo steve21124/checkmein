@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 #import "ASIHTTPRequest.h"
+#import "CMISetupController.h"
 
-@interface HomeController : UIViewController {
+@interface HomeController : UIViewController<CMISetupDelegate> {
     ASIHTTPRequest *_request;
     
     NSMutableArray *_tips;

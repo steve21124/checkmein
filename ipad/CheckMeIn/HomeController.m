@@ -89,6 +89,12 @@
     [self presentModalViewController:ac animated:YES];
 }
 
+- (IBAction)displaySetup:(id)sender {
+    CMISetupController *setupController = [[CMISetupController alloc] initWithNibName:@"CMISetupController" bundle:nil];
+    setupController.delegate = self;
+    [self presentModalViewController:setupController animated:NO];
+}
+
 #pragma Tips
 
 - (void) loadTips {
@@ -223,6 +229,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {    
 
+}
+
+#pragma Setup delegate
+
+-(void) setupDidSelectVenue {
+    [self dismissModalViewControllerAnimated:YES];
+    
+    [self loadTips];
 }
 
 @end

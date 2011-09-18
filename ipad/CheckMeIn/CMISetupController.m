@@ -21,6 +21,7 @@
 @synthesize locMgr = _locMgr;
 @synthesize venues = _venues;
 @synthesize resultsTV;
+@synthesize delegate = _delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -172,6 +173,10 @@
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
         ud.foursquareVenueId = [selectedVenue valueForKey:@"id"];
         [ud synchronize];
+        
+        if (self.delegate) {
+            [self.delegate setupDidSelectVenue];
+        }
         
         [self dismissModalViewControllerAnimated:YES];
     }

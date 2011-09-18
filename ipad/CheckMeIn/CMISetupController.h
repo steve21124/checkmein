@@ -10,6 +10,8 @@
 #import "ASIHTTPRequest.h"
 #import <CoreLocation/CoreLocation.h>
 
+@protocol CMISetupDelegate;
+
 @interface CMISetupController : UIViewController<UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate, CLLocationManagerDelegate> {
     // The request to communicate with the server
     ASIHTTPRequest *_request; 
@@ -22,7 +24,9 @@
     
     NSMutableArray *_venues;
     
-    UITableView *resultsTV;    
+    UITableView *resultsTV;
+    
+    id<CMISetupDelegate> _delegate;
 }
 
 -(IBAction)search:(id)sender;
@@ -35,5 +39,12 @@
 @property (nonatomic, retain) CLLocationManager *locMgr;
 
 @property (nonatomic, retain) NSMutableArray *venues;
+@property (nonatomic, assign) id<CMISetupDelegate> delegate;
+
+@end
+
+@protocol CMISetupDelegate
+
+-(void) setupDidSelectVenue;
 
 @end
