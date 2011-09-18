@@ -8,9 +8,9 @@
 
 #import "CMIConstants.h"
 
-NSString* const kCMIMoodstocksKey    = @"ApIkEy";
-NSString* const kCMIMoodstocksSecret = @"ApIsEcReT";
+NSString* const kCMIMoodstocksKey    = @"Key";
+NSString* const kCMIMoodstocksSecret = @"Secret";
 
-NSString* const kCMI4qClientId    = @"C1SHDVNYKKK44GVVGR3JPXN13RZC1TL40ZHAIBCBBYTV3343";
-NSString* const kCMI4qClientSecret = @"50CNMBWDVHLPT1LUA54KXFOYROOPL55MX1PCH1HC0ZFEAYVI";
+NSString* const kCMI4qClientId    = @"ClientId";
+NSString* const kCMI4qClientSecret = @"ClientSecret";
 NSString* const kCMI4qVersion = @"20110917";
