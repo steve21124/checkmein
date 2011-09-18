@@ -19,6 +19,8 @@
 
 #import "CheckMeInAppDelegate.h"
 
+#define TIMEOUT_DELAY 15
+
 @implementation CMICheckInController
 
 @synthesize accessToken = _accessToken;
@@ -162,7 +164,7 @@
         self.userAvatarView.imageURL = avatarURL;
         [UIView commitAnimations];
         
-        [self performSelector:@selector(timeout) withObject:nil afterDelay:5];
+        [self performSelector:@selector(timeout) withObject:nil afterDelay:TIMEOUT_DELAY];
     }
     
 }
@@ -184,7 +186,7 @@
     self.userAvatarView.image = [UIImage imageNamed:@"4sq_sad.png"];
     [UIView commitAnimations];
     
-    [self performSelector:@selector(timeout) withObject:nil afterDelay:5];    
+    [self performSelector:@selector(timeout) withObject:nil afterDelay:TIMEOUT_DELAY];    
 }
 
 @end
