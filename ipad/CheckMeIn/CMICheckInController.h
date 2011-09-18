@@ -22,6 +22,8 @@
     UILabel *title, *description;
     
     UIView *mainLayer;
+    
+    BOOL checkedIn;
 }
 
 @property (nonatomic, retain) IBOutlet UINavigationItem *navItem;

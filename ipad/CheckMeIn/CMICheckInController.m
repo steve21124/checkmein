@@ -15,6 +15,8 @@
 #import "MBProgressHUD.h"
 #import "MBProgressHUDAdditions.h"
 
+#import "SBJson.h"
+
 @implementation CMICheckInController
 
 @synthesize accessToken = _accessToken;
@@ -54,11 +56,12 @@
 
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo_small"]];
     self.navItem.titleView = imageView;    
-
+    //self.userAvatarView.placeholderImage = [UIImage imageNamed:@"default_userimage.png"];
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
     self.view.backgroundColor = background;
     [background release];
     
+    checkedIn = NO;
     
     self.title.alpha = 0;
     self.description.alpha = 0;        
@@ -90,6 +93,18 @@
     NSURL *url = [NSURL URLWithString: urlString];
 
     self.request = [ASIHTTPRequest requestWithURL:url];
+    self.request.requestMethod = @"POST";
+    [self.request setDelegate:self];
+    
+    [self.request startAsynchronous];
+}
+
+- (void) loadUserInfos {    
+    NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/users/self?client_id=%@&client_secret=%@&v=%@&oauth_token=%@", kCMI4qClientId, kCMI4qClientSecret, kCMI4qVersion, self.accessToken];
+    
+    NSURL *url = [NSURL URLWithString: urlString];
+    
+    self.request = [ASIHTTPRequest requestWithURL:url];
     [self.request setDelegate:self];
     
     [self.request startAsynchronous];
@@ -98,33 +113,48 @@
 #pragma mark - ASIHTTPRequest delegate
 
 - (void)requestStarted:(ASIHTTPRequest *)request {
-    [MBProgressHUD showActivityHUDAddedTo:self.view withText:@"Checking in" effect:MBProgressHUDAnimationZoom];
+    if (!checkedIn) {
+        [MBProgressHUD showActivityHUDAddedTo:self.view withText:@"Checking in" effect:MBProgressHUDAnimationZoom];
+    }
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request
-{
-    UIImage* image = [UIImage imageNamed:@"checkedin.png"];
-    [MBProgressHUD switchHUDAddedTo:self.view toImage:image text:@"Hurray!"];
-    
-    // Use when fetching text data
-    /*
-    NSString *responseString = [request responseString];
-    
-    id results = [responseString JSONValue];
-     */
-    
+{    
     NSLog([request responseString]);
     
-    self.title.text = @"Hurray!";
-    self.description.text = @"You have successfully checked in!";                    
-    
-    [UIView beginAnimations: @"Fade In" context:nil];
-    
-    // druation of animation
-    [UIView setAnimationDuration:0.5];
-    self.title.alpha = 1;
-    self.description.alpha = 1;
-    [UIView commitAnimations];
+    if (!checkedIn) {
+        checkedIn = YES;
+        
+        [self loadUserInfos];
+    }
+    else {        
+        UIImage* image = [UIImage imageNamed:@"checkedin.png"];
+        [MBProgressHUD switchHUDAddedTo:self.view toImage:image text:@"Hurray !"];        
+        
+        
+        self.title.text = @"You're checked in.";
+
+        NSString *responseString = [request responseString];
+        
+        id results = [responseString JSONValue];        
+        
+        
+        NSString *avatarStringURL = [[[results objectForKey:@"response"] objectForKey:@"user"] objectForKey:@"photo"];
+        NSString *bigAvatarStringURL = [avatarStringURL stringByReplacingOccurrencesOfString:@"_thumbs" withString:@""];
+
+        
+        NSURL *avatarURL = [NSURL URLWithString: bigAvatarStringURL];
+
+        
+        [UIView beginAnimations: @"Fade In" context:nil];
+            
+        // druation of animation
+        [UIView setAnimationDuration:0.5];
+        self.title.alpha = 1;
+        self.description.alpha = 1;
+        self.userAvatarView.imageURL = avatarURL;
+        [UIView commitAnimations];
+    }
     
 }
 

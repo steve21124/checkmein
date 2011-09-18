@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CMISuscribe : UIViewController
+@interface CMISuscribe : UIViewController {
+    UIWebView *webView;
+}
+@property (nonatomic, retain) IBOutlet UIWebView *webView;
 
 @end

@@ -80,6 +80,9 @@
 		9A77A5DB1424C6A000E7B4C9 /* CMISetupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A77A5D91424C6A000E7B4C9 /* CMISetupController.m */; };
 		9A77A5DC1424C6A000E7B4C9 /* CMISetupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A77A5DA1424C6A000E7B4C9 /* CMISetupController.xib */; };
 		9A77A5E31424C9CD00E7B4C9 /* NSUserDefaults+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A77A5E21424C9CC00E7B4C9 /* NSUserDefaults+Extensions.m */; };
+		9AA1928A1425F6A600287A8B /* moodstocks.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA192891425F6A600287A8B /* moodstocks.png */; };
+		9AA1928E1425F6D600287A8B /* CMIInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AA1928D1425F6D600287A8B /* CMIInfoController.m */; };
+		9AA1929014260AEC00287A8B /* default_userimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AA1928F14260AEC00287A8B /* default_userimage.png */; };
 		9AE3F1751425E43A00F0039A /* CMISuscribe.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE3F1731425E43A00F0039A /* CMISuscribe.m */; };
 		9AE3F1761425E43A00F0039A /* CMISuscribe.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE3F1741425E43A00F0039A /* CMISuscribe.xib */; };
 /* End PBXBuildFile section */
@@ -207,6 +210,10 @@
 		9A77A5DA1424C6A000E7B4C9 /* CMISetupController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMISetupController.xib; sourceTree = "<group>"; };
 		9A77A5E11424C9CC00E7B4C9 /* NSUserDefaults+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Extensions.h"; sourceTree = "<group>"; };
 		9A77A5E21424C9CC00E7B4C9 /* NSUserDefaults+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Extensions.m"; sourceTree = "<group>"; };
+		9AA192891425F6A600287A8B /* moodstocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = moodstocks.png; sourceTree = "<group>"; };
+		9AA1928C1425F6D600287A8B /* CMIInfoController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMIInfoController.h; sourceTree = "<group>"; };
+		9AA1928D1425F6D600287A8B /* CMIInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMIInfoController.m; sourceTree = "<group>"; };
+		9AA1928F14260AEC00287A8B /* default_userimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_userimage.png; sourceTree = "<group>"; };
 		9AE3F1721425E43A00F0039A /* CMISuscribe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMISuscribe.h; sourceTree = "<group>"; };
 		9AE3F1731425E43A00F0039A /* CMISuscribe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMISuscribe.m; sourceTree = "<group>"; };
 		9AE3F1741425E43A00F0039A /* CMISuscribe.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMISuscribe.xib; sourceTree = "<group>"; };
@@ -443,6 +450,8 @@
 				9AE3F1721425E43A00F0039A /* CMISuscribe.h */,
 				9AE3F1731425E43A00F0039A /* CMISuscribe.m */,
 				9AE3F1741425E43A00F0039A /* CMISuscribe.xib */,
+				9AA1928C1425F6D600287A8B /* CMIInfoController.h */,
+				9AA1928D1425F6D600287A8B /* CMIInfoController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -450,6 +459,8 @@
 		9A73CBD414251C64000D8DED /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				9AA1928F14260AEC00287A8B /* default_userimage.png */,
+				9AA192891425F6A600287A8B /* moodstocks.png */,
 				9A6E3146142592F300CEA436 /* background.jpg */,
 				9A6E313F14258E8400CEA436 /* info.png */,
 				9A6E313D14258A7200CEA436 /* 4sq_sad.png */,
@@ -630,6 +641,8 @@
 				9A6E314214258FBD00CEA436 /* AboutView.xib in Resources */,
 				9A6E3147142592F300CEA436 /* background.jpg in Resources */,
 				9AE3F1761425E43A00F0039A /* CMISuscribe.xib in Resources */,
+				9AA1928A1425F6A600287A8B /* moodstocks.png in Resources */,
+				9AA1929014260AEC00287A8B /* default_userimage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,6 +695,7 @@
 				9A6E314514258FDD00CEA436 /* AboutController.m in Sources */,
 				822766AF1425CDA800B82524 /* MBProgressHUDAdditions.m in Sources */,
 				9AE3F1751425E43A00F0039A /* CMISuscribe.m in Sources */,
+				9AA1928E1425F6D600287A8B /* CMIInfoController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

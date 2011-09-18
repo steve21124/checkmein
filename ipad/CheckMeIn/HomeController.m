@@ -14,6 +14,7 @@
 #import "CMIConstants.h"
 #import "NSUserDefaults+Extensions.h"
 #import "SBJson.h"
+#import "CMIInfoController.h"
 
 @implementation HomeController
 
@@ -48,10 +49,12 @@
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo_small"]];
     self.navItem.titleView = imageView; 
     
+    /*
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeInfoLight];
     self.navItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
     [btn addTarget:self action:@selector(displayInfos:) forControlEvents:UIControlEventTouchUpInside];
-    
+    */
+     
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
     self.view.backgroundColor = background;
     [background release];
@@ -61,7 +64,7 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated {
-    [self loadTips];
+    //[self loadTips];
 }
 
 - (void)viewDidUnload
@@ -86,12 +89,11 @@
     [self presentModalViewController:scanner animated:YES];
 }
 
-- (IBAction)displayInfos:(id)sender {
-    AboutController *ac = [[AboutController alloc] initWithNibName:@"AboutView" bundle:nil];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ac];
-    navController.modalPresentationStyle = UIModalPresentationFormSheet;
-    
-    [self presentModalViewController:navController animated:YES];
+- (IBAction)displayInfos:(id)sender {    
+    CMIInfoController* infoController = [[CMIInfoController alloc] init];
+    [infoController setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+    [self presentModalViewController:infoController animated:YES];
+    [infoController release];    
 }
 
 - (IBAction)displaySetup:(id)sender {
@@ -246,7 +248,7 @@
 -(void) setupDidSelectVenue {
     [self dismissModalViewControllerAnimated:YES];
     
-    [self loadTips];
+    //[self loadTips];
 }
 
 

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CMIInfoController : UIViewController
+@interface CMIInfoController : UIViewController<UIActionSheetDelegate> {
+}
 
 @end
