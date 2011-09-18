@@ -8,14 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MBProgressHUD.h"
 #import "ASIHTTPRequest.h"
 
 #import "EGOImageView.h"
 
-@interface CMICheckInController : UIViewController<MBProgressHUDDelegate, ASIHTTPRequestDelegate, UITableViewDataSource, UITableViewDelegate> {
-	MBProgressHUD *HUD;
-    
+@interface CMICheckInController : UIViewController<ASIHTTPRequestDelegate, UITableViewDataSource, UITableViewDelegate> {
     ASIHTTPRequest *_request; 
     
     NSString *_accessToken;
