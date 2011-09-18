@@ -80,6 +80,8 @@
 		9A77A5DB1424C6A000E7B4C9 /* CMISetupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A77A5D91424C6A000E7B4C9 /* CMISetupController.m */; };
 		9A77A5DC1424C6A000E7B4C9 /* CMISetupController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A77A5DA1424C6A000E7B4C9 /* CMISetupController.xib */; };
 		9A77A5E31424C9CD00E7B4C9 /* NSUserDefaults+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A77A5E21424C9CC00E7B4C9 /* NSUserDefaults+Extensions.m */; };
+		9AE3F1751425E43A00F0039A /* CMISuscribe.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE3F1731425E43A00F0039A /* CMISuscribe.m */; };
+		9AE3F1761425E43A00F0039A /* CMISuscribe.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AE3F1741425E43A00F0039A /* CMISuscribe.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -205,6 +207,9 @@
 		9A77A5DA1424C6A000E7B4C9 /* CMISetupController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMISetupController.xib; sourceTree = "<group>"; };
 		9A77A5E11424C9CC00E7B4C9 /* NSUserDefaults+Extensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+Extensions.h"; sourceTree = "<group>"; };
 		9A77A5E21424C9CC00E7B4C9 /* NSUserDefaults+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+Extensions.m"; sourceTree = "<group>"; };
+		9AE3F1721425E43A00F0039A /* CMISuscribe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMISuscribe.h; sourceTree = "<group>"; };
+		9AE3F1731425E43A00F0039A /* CMISuscribe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMISuscribe.m; sourceTree = "<group>"; };
+		9AE3F1741425E43A00F0039A /* CMISuscribe.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CMISuscribe.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -435,6 +440,9 @@
 				9A6E314114258FBD00CEA436 /* AboutView.xib */,
 				9A6E314314258FDD00CEA436 /* AboutController.h */,
 				9A6E314414258FDD00CEA436 /* AboutController.m */,
+				9AE3F1721425E43A00F0039A /* CMISuscribe.h */,
+				9AE3F1731425E43A00F0039A /* CMISuscribe.m */,
+				9AE3F1741425E43A00F0039A /* CMISuscribe.xib */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -621,6 +629,7 @@
 				9A6E314014258E8400CEA436 /* info.png in Resources */,
 				9A6E314214258FBD00CEA436 /* AboutView.xib in Resources */,
 				9A6E3147142592F300CEA436 /* background.jpg in Resources */,
+				9AE3F1761425E43A00F0039A /* CMISuscribe.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -672,6 +681,7 @@
 				9A6E31311425524800CEA436 /* EGOCache.m in Sources */,
 				9A6E314514258FDD00CEA436 /* AboutController.m in Sources */,
 				822766AF1425CDA800B82524 /* MBProgressHUDAdditions.m in Sources */,
+				9AE3F1751425E43A00F0039A /* CMISuscribe.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

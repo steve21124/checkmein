@@ -40,6 +40,12 @@
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void)dealloc {
+    [super dealloc];
+    
+    [_request release];
+}
+
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad
@@ -127,7 +133,7 @@
     UIImage* image = [UIImage imageNamed:@"warning.png"];
     [MBProgressHUD switchHUDAddedTo:self.view toImage:image text:@"Oops"];
     
-    self.title.text = @"Oh oh ..";
+    self.title.text = @"Checkin failed";
     self.description.text = @"An unexpected error has occured. You have not checked in.";                    
     
     [UIView beginAnimations: @"Fade In" context:nil];

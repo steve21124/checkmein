@@ -8,6 +8,8 @@
 
 #import "AboutController.h"
 
+#import "CMISuscribe.h"
+
 @implementation AboutController
 
 @synthesize navItem;
@@ -44,7 +46,12 @@
     [super viewDidLoad];
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo_small"]];
-    self.navItem.titleView = imageView; 
+    self.navigationItem.titleView = imageView; 
+    
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    
+    UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" style:UIBarButtonItemStyleBordered target:self action:@selector(close:)];
+    self.navigationItem.leftBarButtonItem = cancelItem;
 }
 
 - (void)viewDidUnload
@@ -64,6 +71,12 @@
 
 -(IBAction)close:(id)sender {
     [self dismissModalViewControllerAnimated:YES];
+}
+
+- (IBAction)suscribeToCMI:(id)sender {
+    CMISuscribe *suscribeController = [[CMISuscribe alloc] initWithNibName:@"CMISuscribe" bundle:nil];
+    
+    [self.navigationController pushViewController:suscribeController animated:YES];
 }
 
 @end

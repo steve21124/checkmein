@@ -22,6 +22,7 @@
 @synthesize venues = _venues;
 @synthesize resultsTV;
 @synthesize delegate = _delegate;
+@synthesize navItem;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,7 +58,12 @@
     self.locMgr.delegate = self;
     self.locMgr.distanceFilter = kCLDistanceFilterNone; // whenever we move
     self.locMgr.desiredAccuracy = kCLLocationAccuracyHundredMeters; // 100 m
-    [self.locMgr startUpdatingLocation];    
+    [self.locMgr startUpdatingLocation];
+    
+    if (!self.delegate) {
+        // initial configuration
+        self.navItem.rightBarButtonItem = nil;
+    }
 }
 
 - (void)viewDidUnload
@@ -201,6 +207,10 @@
     [self.request setDelegate:self];
     
     [self.request startAsynchronous];
+}
+
+-(IBAction)cancel:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark - ASIHTTPRequest Delegate

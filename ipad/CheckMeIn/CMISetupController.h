@@ -26,6 +26,8 @@
     
     UITableView *resultsTV;
     
+    UINavigationItem *navItem;
+    
     id<CMISetupDelegate> _delegate;
 }
 
@@ -35,6 +37,8 @@
 
 @property (nonatomic, retain) IBOutlet UITextField *searchField;
 @property (nonatomic, retain) IBOutlet UITableView *resultsTV;
+
+@property (nonatomic, retain) IBOutlet UINavigationItem *navItem;
 
 @property (nonatomic, retain) CLLocationManager *locMgr;
 
