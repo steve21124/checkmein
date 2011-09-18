@@ -25,7 +25,6 @@ module CMI class App
   end
   
   get("/") do
-    puts client.web_server.authorize_url(:redirect_uri => redirect_uri)
     mustache(:index,
              :layout => :layout,
              :locals => {:redirect_url => "https://foursquare.com/oauth2/authenticate?client_id=#{CFG[:fsq][:key]}&response_type=code&redirect_uri=#{CGI.escape(redirect_uri)}"})
