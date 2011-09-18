@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		822766AF1425CDA800B82524 /* MBProgressHUDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 822766AE1425CDA800B82524 /* MBProgressHUDAdditions.m */; };
 		8284AE151424C1A2000321FF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8284AE141424C1A2000321FF /* UIKit.framework */; };
 		8284AE171424C1A2000321FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8284AE161424C1A2000321FF /* Foundation.framework */; };
 		8284AE191424C1A2000321FF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8284AE181424C1A2000321FF /* CoreGraphics.framework */; };
@@ -82,6 +83,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		822766AD1425CDA800B82524 /* MBProgressHUDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUDAdditions.h; sourceTree = "<group>"; };
+		822766AE1425CDA800B82524 /* MBProgressHUDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUDAdditions.m; sourceTree = "<group>"; };
 		8284AE101424C1A2000321FF /* CheckMeIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckMeIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8284AE141424C1A2000321FF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8284AE161424C1A2000321FF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -227,6 +230,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		822766AB1425CD8300B82524 /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				822766AD1425CDA800B82524 /* MBProgressHUDAdditions.h */,
+				822766AE1425CDA800B82524 /* MBProgressHUDAdditions.m */,
+			);
+			name = Additions;
+			sourceTree = "<group>";
+		};
 		8284AE051424C1A2000321FF = {
 			isa = PBXGroup;
 			children = (
@@ -460,6 +472,7 @@
 		9A73CBE2142524F1000D8DED /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
+				822766AB1425CD8300B82524 /* Additions */,
 				9A73CBE314252502000D8DED /* MBProgressHUD.h */,
 				9A73CBE414252502000D8DED /* MBProgressHUD.m */,
 			);
@@ -658,6 +671,7 @@
 				9A6E312E1425523C00CEA436 /* EGOImageLoadConnection.m in Sources */,
 				9A6E31311425524800CEA436 /* EGOCache.m in Sources */,
 				9A6E314514258FDD00CEA436 /* AboutController.m in Sources */,
+				822766AF1425CDA800B82524 /* MBProgressHUDAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
