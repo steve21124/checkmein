@@ -100,7 +100,7 @@
 						<int key="NSvFlags">292</int>
 						<object class="NSMutableArray" key="NSSubviews">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBUIView" id="108723927">
+							<object class="IBUIView" id="79104618">
 								<reference key="NSNextResponder" ref="44064550"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{8, 9}, {292, 292}}</string>
@@ -109,8 +109,8 @@
 								<reference key="NSNextKeyView" ref="34157045"/>
 								<string key="NSReuseIdentifierKey">_NS:49</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MC45MTE4OTAxNDY3IDAuOTExODkwMTQ2NyAwLjkxMTg5MDE0NjcAA</bytes>
 								</object>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 							</object>
@@ -129,7 +129,7 @@
 						<string key="NSFrame">{{230, 347}, {309, 309}}</string>
 						<reference key="NSSuperview" ref="766721923"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="108723927"/>
+						<reference key="NSNextKeyView" ref="79104618"/>
 						<string key="NSReuseIdentifierKey">_NS:49</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">1</int>
@@ -247,7 +247,7 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="34157045"/>
-							<reference ref="108723927"/>
+							<reference ref="79104618"/>
 						</object>
 						<reference key="parent" ref="766721923"/>
 					</object>
@@ -258,7 +258,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">28</int>
-						<reference key="object" ref="108723927"/>
+						<reference key="object" ref="79104618"/>
 						<reference key="parent" ref="44064550"/>
 					</object>
 				</object>
