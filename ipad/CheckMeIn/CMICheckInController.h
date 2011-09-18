@@ -19,29 +19,21 @@
     ASIHTTPRequest *_request; 
     
     NSString *_accessToken;
-    
-    NSDictionary *infos;
-    NSMutableArray *tips;
-    NSMutableArray *coupons;
-    
-    EGOImageView *imageView;
-    
-    UITableView *tipsTableView;
-    
+        
+    EGOImageView *userAvatarView;
+        
     UILabel *title, *description;
     
     UIView *mainLayer;
 }
 
+@property (nonatomic, retain) IBOutlet UINavigationItem *navItem;
 @property (nonatomic, retain) NSString *accessToken;
 @property (nonatomic, retain) ASIHTTPRequest *request;
 
-@property (nonatomic, retain) IBOutlet EGOImageView *imageView;
-@property (nonatomic, retain) IBOutlet UITableView *tipsTableView;
+@property (nonatomic, retain) IBOutlet EGOImageView *userAvatarView;
 
 @property (nonatomic, retain) IBOutlet UILabel *title, *description;
-
-@property (nonatomic, retain) IBOutlet UIView *mainLayer;
 
 - (void) checkin;
 - (void) loadInfos;

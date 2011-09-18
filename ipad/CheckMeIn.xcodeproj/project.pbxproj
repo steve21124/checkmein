@@ -51,6 +51,9 @@
 		9A6E312D1425523C00CEA436 /* EGOImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6E312A1425523C00CEA436 /* EGOImageLoader.m */; };
 		9A6E312E1425523C00CEA436 /* EGOImageLoadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6E312C1425523C00CEA436 /* EGOImageLoadConnection.m */; };
 		9A6E31311425524800CEA436 /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6E31301425524800CEA436 /* EGOCache.m */; };
+		9A6E31381425689F00CEA436 /* MBProgressHUDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A6E31361425689F00CEA436 /* MBProgressHUDAdditions.m */; };
+		9A6E313A1425696300CEA436 /* warning.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A6E31391425696300CEA436 /* warning.png */; };
+		9A6E313C1425698100CEA436 /* checkedin.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A6E313B1425698100CEA436 /* checkedin.png */; };
 		9A73CBD814251C71000D8DED /* checkmein.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A73CBD614251C71000D8DED /* checkmein.png */; };
 		9A73CBDA14251E76000D8DED /* checkmein_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A73CBD914251E76000D8DED /* checkmein_button.png */; };
 		9A73CBE514252502000D8DED /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A73CBE414252502000D8DED /* MBProgressHUD.m */; };
@@ -149,6 +152,10 @@
 		9A6E312C1425523C00CEA436 /* EGOImageLoadConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageLoadConnection.m; sourceTree = "<group>"; };
 		9A6E312F1425524800CEA436 /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOCache.h; sourceTree = "<group>"; };
 		9A6E31301425524800CEA436 /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOCache.m; sourceTree = "<group>"; };
+		9A6E31361425689F00CEA436 /* MBProgressHUDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUDAdditions.m; sourceTree = "<group>"; };
+		9A6E31371425689F00CEA436 /* MBProgressHUDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUDAdditions.h; sourceTree = "<group>"; };
+		9A6E31391425696300CEA436 /* warning.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = warning.png; sourceTree = "<group>"; };
+		9A6E313B1425698100CEA436 /* checkedin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkedin.png; sourceTree = "<group>"; };
 		9A73CBD614251C71000D8DED /* checkmein.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmein.png; sourceTree = "<group>"; };
 		9A73CBD914251E76000D8DED /* checkmein_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkmein_button.png; sourceTree = "<group>"; };
 		9A73CBE314252502000D8DED /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
@@ -412,6 +419,8 @@
 		9A73CBD414251C64000D8DED /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
+				9A6E313B1425698100CEA436 /* checkedin.png */,
+				9A6E31391425696300CEA436 /* warning.png */,
 				9A6E3110142544A300CEA436 /* logo_small.png */,
 				9A6E310C14253B9000CEA436 /* icon.png */,
 				9A6E31021425377600CEA436 /* message_bottom.png */,
@@ -504,6 +513,8 @@
 		9A77A5DD1424C97A00E7B4C9 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9A6E31361425689F00CEA436 /* MBProgressHUDAdditions.m */,
+				9A6E31371425689F00CEA436 /* MBProgressHUDAdditions.h */,
 				9A638B5514250780005F5A6A /* NSString+URLEncode.h */,
 				9A638B5614250780005F5A6A /* NSString+URLEncode.m */,
 				9A77A5E11424C9CC00E7B4C9 /* NSUserDefaults+Extensions.h */,
@@ -579,6 +590,8 @@
 				9A6E31091425377600CEA436 /* message_left.png in Resources */,
 				9A6E310D14253B9000CEA436 /* icon.png in Resources */,
 				9A6E3111142544A300CEA436 /* logo_small.png in Resources */,
+				9A6E313A1425696300CEA436 /* warning.png in Resources */,
+				9A6E313C1425698100CEA436 /* checkedin.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,6 +641,7 @@
 				9A6E312D1425523C00CEA436 /* EGOImageLoader.m in Sources */,
 				9A6E312E1425523C00CEA436 /* EGOImageLoadConnection.m in Sources */,
 				9A6E31311425524800CEA436 /* EGOCache.m in Sources */,
+				9A6E31381425689F00CEA436 /* MBProgressHUDAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
