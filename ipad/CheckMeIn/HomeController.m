@@ -46,7 +46,11 @@
     [super viewDidLoad];
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo_small"]];
-    self.navItem.titleView = imageView;   
+    self.navItem.titleView = imageView; 
+    
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeInfoLight];
+    self.navItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:btn];
+    [btn addTarget:self action:@selector(displayInfos:) forControlEvents:UIControlEventTouchUpInside];
     
     UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
     self.view.backgroundColor = background;
@@ -84,18 +88,20 @@
 
 - (IBAction)displayInfos:(id)sender {
     AboutController *ac = [[AboutController alloc] initWithNibName:@"AboutView" bundle:nil];
-    ac.modalPresentationStyle = UIModalPresentationFormSheet;
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:ac];
+    navController.modalPresentationStyle = UIModalPresentationFormSheet;
     
-    [self presentModalViewController:ac animated:YES];
+    [self presentModalViewController:navController animated:YES];
 }
 
 - (IBAction)displaySetup:(id)sender {
     CMISetupController *setupController = [[CMISetupController alloc] initWithNibName:@"CMISetupController" bundle:nil];
     setupController.delegate = self;
-    [self presentModalViewController:setupController animated:NO];
+    setupController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentModalViewController:setupController animated:YES];
 }
 
-#pragma Tips
+#pragma mark - Tips
 
 - (void) loadTips {
     if (self.request != nil)
@@ -137,6 +143,10 @@
         [UIView commitAnimations];        
     }
     
+    if ([self.tips count] == 0) {
+        self.tipsTV.alpha = 0;
+        self.separatorView.alpha = 0;
+    }
     [self.tipsTV reloadData];
 }
 
@@ -160,7 +170,7 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	return @"Tips";
+	return @"Latest tips";
 }
 
 
@@ -238,5 +248,7 @@
     
     [self loadTips];
 }
+
+
 
 @end
