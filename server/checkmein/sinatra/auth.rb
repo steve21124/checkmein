@@ -53,6 +53,7 @@ module CMI class App
           u = User.create(uid: uid, token: token)
         else
           r = MsApi.delete(u.token)
+          u.token = token; u.save
           err = true unless r.response.code.to_i == 200
         end
         r = MsApi.addnx(pic_url, token)
