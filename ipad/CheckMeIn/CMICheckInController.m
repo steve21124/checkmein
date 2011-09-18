@@ -17,6 +17,8 @@
 
 #import "SBJson.h"
 
+#import "CheckMeInAppDelegate.h"
+
 @implementation CMICheckInController
 
 @synthesize accessToken = _accessToken;
@@ -110,6 +112,11 @@
     [self.request startAsynchronous];
 }
 
+-(void) timeout {
+    CheckMeInAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate.viewController dismissModalViewControllerAnimated:YES];
+}
+
 #pragma mark - ASIHTTPRequest delegate
 
 - (void)requestStarted:(ASIHTTPRequest *)request {
@@ -154,6 +161,8 @@
         self.description.alpha = 1;
         self.userAvatarView.imageURL = avatarURL;
         [UIView commitAnimations];
+        
+        [self performSelector:@selector(timeout) withObject:nil afterDelay:5];
     }
     
 }
@@ -174,6 +183,8 @@
     self.description.alpha = 1;
     self.userAvatarView.image = [UIImage imageNamed:@"4sq_sad.png"];
     [UIView commitAnimations];
+    
+    [self performSelector:@selector(timeout) withObject:nil afterDelay:5];    
 }
 
 @end

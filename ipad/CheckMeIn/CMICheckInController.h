@@ -37,4 +37,6 @@
 - (void) checkin;
 - (void) loadInfos;
 
+-(void) timeout;
+
 @end
