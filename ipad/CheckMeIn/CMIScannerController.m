@@ -383,8 +383,7 @@ CGImageRef CMICreateImageFromSampleBuffer(CMSampleBufferRef sbuf) {
     ];
     
     CMICheckInController *checkInController = [[CMICheckInController alloc] initWithNibName:@"CMICheckInController" bundle:nil];
-    //checkInController.accessToken = uid;
-    checkInController.accessToken = @"HCZH4R5STIDAF2UAQU4ZWJKCZAAC12AOZNOVREILTYUX3NLS";
+    checkInController.accessToken = uid;
     [self presentModalViewController:checkInController animated:NO];
 }
 
