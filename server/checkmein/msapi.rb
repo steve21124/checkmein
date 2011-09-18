@@ -17,7 +17,7 @@ module CMI module MsApi
     end
     
     def delete(id)
-      Ep::delete("#{ep}/ref/#{id}")
+      Ep::delete("/v2/ref/#{id}")
     end
 
   end # class << self
