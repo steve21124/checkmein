@@ -46,6 +46,11 @@
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo_small"]];
     self.navItem.titleView = imageView;    
 
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
+    self.view.backgroundColor = background;
+    [background release];
+    
+    
     self.title.alpha = 0;
     self.description.alpha = 0;        
     

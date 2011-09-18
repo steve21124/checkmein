@@ -13,5 +13,6 @@
 @property (nonatomic, retain) IBOutlet UINavigationItem *navItem;
 
 - (IBAction)touched:(id)sender;
+- (IBAction)displayInfos:(id)sender;
 
 @end

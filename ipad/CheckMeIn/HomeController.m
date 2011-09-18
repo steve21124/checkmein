@@ -10,6 +10,7 @@
 
 #import "CMIScannerController.h"
 #import "CMICheckInController.h"
+#import "AboutController.h"
 
 @implementation HomeController
 
@@ -36,7 +37,11 @@
     [super viewDidLoad];
     
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo_small"]];
-    self.navItem.titleView = imageView;    
+    self.navItem.titleView = imageView;   
+    
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
+    self.view.backgroundColor = background;
+    [background release];
 }
 
 
@@ -60,6 +65,13 @@
     scanner.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
     [self presentModalViewController:scanner animated:YES];
+}
+
+- (IBAction)displayInfos:(id)sender {
+    AboutController *ac = [[AboutController alloc] initWithNibName:@"AboutView" bundle:nil];
+    ac.modalPresentationStyle = UIModalPresentationFormSheet;
+    
+    [self presentModalViewController:ac animated:YES];
 }
 
 @end
