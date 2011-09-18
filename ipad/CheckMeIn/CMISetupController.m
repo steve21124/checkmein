@@ -54,6 +54,13 @@
 {
     [super viewDidLoad];
 
+    UIColor *background = [[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
+    self.view.backgroundColor = background;
+    [background release];
+
+    
+    self.resultsTV.alpha = 0;
+    
     self.locMgr = [[CLLocationManager alloc] init];
     self.locMgr.delegate = self;
     self.locMgr.distanceFilter = kCLDistanceFilterNone; // whenever we move
@@ -222,6 +229,15 @@
     
     NSDictionary *results = [responseString JSONValue];
     self.venues = [[results valueForKey:@"response"] valueForKey:@"venues"];
+    
+    if ([self.venues count] > 0) {
+        [UIView beginAnimations: @"Fade In" context:nil];
+        
+        // druation of animation
+        [UIView setAnimationDuration:0.5];
+        self.resultsTV.alpha = 1;
+        [UIView commitAnimations];
+    }
     
     [self.resultsTV reloadData];
 }

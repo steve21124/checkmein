@@ -114,7 +114,7 @@
 
 -(void) timeout {
     CheckMeInAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [appDelegate.viewController dismissModalViewControllerAnimated:YES];
+    [appDelegate.viewController dismissModalViewControllerAnimated:NO];
 }
 
 #pragma mark - ASIHTTPRequest delegate
