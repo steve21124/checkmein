@@ -16,6 +16,7 @@
 			<string>IBUIButton</string>
 			<string>IBUILabel</string>
 			<string>IBUIToolbar</string>
+			<string>IBUIBarButtonItem</string>
 			<string>IBUITextField</string>
 			<string>IBUINavigationBar</string>
 			<string>IBUINavigationItem</string>
@@ -59,6 +60,12 @@
 							<object class="IBUINavigationItem" id="518629565">
 								<reference key="IBUINavigationBar" ref="512099716"/>
 								<string key="IBUITitle">Setup</string>
+								<object class="IBUIBarButtonItem" key="IBUIRightBarButtonItem" id="617781073">
+									<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+									<int key="IBUIStyle">1</int>
+									<reference key="IBUINavigationItem" ref="518629565"/>
+									<int key="IBUISystemItemIdentifier">1</int>
+								</object>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 							</object>
 						</object>
@@ -307,6 +314,14 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">navItem</string>
+						<reference key="source" ref="841351856"/>
+						<reference key="destination" ref="518629565"/>
+					</object>
+					<int key="connectionID">29</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="392991272"/>
 						<reference key="destination" ref="841351856"/>
@@ -337,6 +352,14 @@
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">18</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">cancel:</string>
+						<reference key="source" ref="617781073"/>
+						<reference key="destination" ref="841351856"/>
+					</object>
+					<int key="connectionID">28</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -389,6 +412,10 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">5</int>
 						<reference key="object" ref="518629565"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="617781073"/>
+						</object>
 						<reference key="parent" ref="512099716"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -429,6 +456,11 @@
 						</object>
 						<reference key="parent" ref="766721923"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">27</int>
+						<reference key="object" ref="617781073"/>
+						<reference key="parent" ref="518629565"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -444,6 +476,7 @@
 					<string>23.IBPluginDependency</string>
 					<string>24.IBPluginDependency</string>
 					<string>25.IBPluginDependency</string>
+					<string>27.IBPluginDependency</string>
 					<string>4.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
 					<string>6.IBPluginDependency</string>
@@ -455,6 +488,7 @@
 					<string>CMISetupController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>UIResponder</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -480,7 +514,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">26</int>
+			<int key="maxID">29</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -503,11 +537,13 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>navItem</string>
 							<string>resultsTV</string>
 							<string>searchField</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>UINavigationItem</string>
 							<string>UITableView</string>
 							<string>UITextField</string>
 						</object>
@@ -516,11 +552,16 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>navItem</string>
 							<string>resultsTV</string>
 							<string>searchField</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">navItem</string>
+								<string key="candidateClassName">UINavigationItem</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">resultsTV</string>
 								<string key="candidateClassName">UITableView</string>
