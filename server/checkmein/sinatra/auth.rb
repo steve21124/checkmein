@@ -27,7 +27,7 @@ module CMI class App
   get("/") do
     mustache(:index,
              :layout => :layout,
-             :locals => {:redirect_url => "https://foursquare.com/oauth2/authenticate?client_id=#{CFG[:fsq][:key]}&response_type=code&redirect_uri=#{redirect_uri}"})
+             :locals => {:redirect_url => "https://foursquare.com/oauth2/authenticate?client_id=#{CFG[:fsq][:key]}&response_type=code&redirect_uri=#{CGI.escape(redirect_uri)}"})
   end
   
   get '/auth/foursquare/callback' do

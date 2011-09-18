@@ -1,7 +1,7 @@
 module CMI
 
   require "as-extensions"
-  ASE::need %w{ohm ohm/contrib httparty oauth2 json}
+  ASE::need %w{ohm ohm/contrib httparty oauth2 json cgi}
 
   root = File.expand_path(File.dirname(__FILE__))
 
