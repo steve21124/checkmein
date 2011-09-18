@@ -15,6 +15,8 @@ body {
   color: #555555;
   font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
   font-size: normal;
+  background-image:url("/img/stripe.png");
+  background-repeat:repeat;
 }
 body a {
   color: #ff0000;
@@ -30,9 +32,9 @@ body h1 {
   padding: 0;
 }
 body object {
-  border-top: 2px solid #ffffff;
-  border-left: 2px solid #ffffff;
-  border-right: 2px solid #ffffff;
+  border-top: 5px solid #ffffff;
+  border-left: 5px solid #ffffff;
+  border-right: 5px solid #ffffff;
 }
 body p {
   text-align: center;
@@ -43,7 +45,7 @@ body p {
 #container {
   margin: auto;
   width: 750px;
-  padding-top: 10px;
+  padding: 10px;
 }
 #header {
   background: url("/img/logo.png") no-repeat scroll center top transparent;

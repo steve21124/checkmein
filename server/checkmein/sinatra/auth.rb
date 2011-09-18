@@ -40,8 +40,11 @@ module CMI class App
     token = response["access_token"]
     resp = HTTParty.get("https://api.foursquare.com/v2/users/self?oauth_token=#{token}")
     err = false
+    pic_url = "https://d3t9wmuxo47dud.cloudfront.net/img/blank_boy-82b50670208ac7994bba547c50a6ad80.png"
+    name = "anonymous"
     if resp.response.code.to_i == 200
       pic_url = resp.parsed_response["response"]["user"]["photo"].gsub("_thumbs", "")
+      name = resp.parsed_response["response"]["user"]["firstName"]
       if pic_url =~ /(blank_boy|blank_girl)/
         # Prevent users without custom profile picture
         err = true
@@ -70,9 +73,14 @@ module CMI class App
     else
       err = true
     end
+    status = if err
+      "An error occurred... Try again later. Don't forget you can't use the default avatar."
+    else
+      "This is the pic you can use to check-in!"
+    end
     mustache(:auth,
              :layout => :layout,
-             :locals => {:pic_url => pic_url, :status => (err ? 'KO' : 'OK')})
+             :locals => {:name => name, :pic_url => pic_url, :status => status})
   end
   
 end end
