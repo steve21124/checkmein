@@ -43,7 +43,9 @@ module CMI class App
     if resp.response.code.to_i == 200
       pic_url = resp.parsed_response["response"]["user"]["photo"].gsub("_thumbs", "")
       if pic_url =~ /(blank_boy|blank_girl)/
+        # Prevent users without custom profile picture
         err = true
+        ASE::log("Blank profile picture",:info)
       else
         uid = resp.parsed_response["response"]["user"]["id"]
         u = User.get(uid)
@@ -53,8 +55,16 @@ module CMI class App
           r = MsApi.delete(u.token)
           err = true unless r.response.code.to_i == 200
         end
-        r = MsApi.add(pic_url, token)
-        err = true unless r.response.code.to_i == 200
+        r = MsApi.addnx(pic_url, token)
+        if r.response.code.to_i == 200
+          # Avatars must be unique per user
+          if r.parsed_response["found"] == true
+            err = true 
+            ASE::log("Picture already exists",:info)
+          end
+        else
+          err = true
+        end
       end
     else
       err = true
