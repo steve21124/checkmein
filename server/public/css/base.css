@@ -1,1 +1,57 @@
-/* Base CSS */
+.clearfix:before, .clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  visibility: hidden;
+}
+.clearfix:after {
+  clear: both;
+}
+.clearfix {
+  clear: both;
+  zoom: 1;
+}
+body {
+  color: #555555;
+  font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
+  font-size: normal;
+}
+body a {
+  color: #ff0000;
+  text-decoration: none;
+}
+body h1 {
+  text-align: center;
+  font-size: 45px;
+  font-weight: bold;
+  letter-spacing: -2px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding: 0;
+}
+body object {
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+}
+body p {
+  text-align: center;
+  font-size: 18px;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+#container {
+  margin: auto;
+  width: 750px;
+  padding-top: 10px;
+}
+#header {
+  background: url("/img/logo.png") no-repeat scroll center top transparent;
+  color: transparent;
+  font-size: 0;
+  height: 26px;
+  margin: 20px auto auto;
+  padding-bottom: 30px;
+  text-align: center;
+  text-indent: -9999px;
+}
