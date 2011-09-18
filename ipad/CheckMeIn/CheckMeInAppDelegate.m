@@ -37,6 +37,10 @@
         [self.viewController presentModalViewController:setupController animated:NO];
     }
         
+    CMICheckInController *cic = [[CMICheckInController alloc] initWithNibName:@"CMICheckInController" bundle:nil];
+    [self.viewController presentModalViewController:cic animated:NO];
+
+    
     return YES;
 }
 

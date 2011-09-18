@@ -45,6 +45,9 @@
 
     UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo_small"]];
     self.navItem.titleView = imageView;    
+
+    self.title.alpha = 0;
+    self.description.alpha = 0;        
     
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
     HUD.delegate = self;
@@ -116,11 +119,38 @@
     NSString *responseString = [request responseString];
     
     id results = [responseString JSONValue];
+    
+    NSLog([request responseString]);
+    
+    self.title.text = @"Hurray !";
+    self.description.text = @"You have successfully checked in !";                    
+    
+    [UIView beginAnimations: @"Fade In" context:nil];
+    
+    // druation of animation
+    [UIView setAnimationDuration:0.5];
+    self.title.alpha = 1;
+    self.description.alpha = 1;
+    [UIView commitAnimations];
+    
 }
 
 - (void)requestFailed:(ASIHTTPRequest *)request
 {
-    NSError *error = [request error];
+    //NSError *error = [request error];
+    [HUD removeFromSuperview];
+
+    self.title.text = @"Oh oh ..";
+    self.description.text = @"An unexpected error has occured. You have not checked in.";                    
+    
+    [UIView beginAnimations: @"Fade In" context:nil];
+        
+    // druation of animation
+    [UIView setAnimationDuration:0.5];
+    self.title.alpha = 1;
+    self.description.alpha = 1;
+    self.userAvatarView.image = [UIImage imageNamed:@"4sq_sad.png"];
+    [UIView commitAnimations];
 }
 
 @end
