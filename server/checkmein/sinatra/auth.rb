@@ -24,6 +24,12 @@ module CMI class App
     {hello: "world"}.to_json
   end
   
+  get("/") do
+    mustache(:index,
+             :layout => :layout,
+             :locals => {:redirect_url => "https://foursquare.com/oauth2/authenticate?client_id=#{CFG[:fsq][:key]}&response_type=code&redirect_uri=#{redirect_uri}"})
+  end
+  
   get '/auth/foursquare/callback' do
     # access_token = client.web_server.get_access_token(params[:code], :redirect_uri => redirect_uri)
     # It would be better to use the line above but it returns a 301 error, so I use the hack below instead.
