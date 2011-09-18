@@ -12,8 +12,8 @@ module CMI module MsApi
       Ep::get("/v2/echo", {query:params})
     end
     
-    def add(image_url,id)
-      Ep::put("/v2/ref/#{id}",{body:"",query:{image_url:image_url}})
+    def addnx(image_url,id)
+      Ep::post("/v2/ref/#{id}/addnx",{body:"",query:{image_url:image_url}})
     end
     
     def delete(id)
