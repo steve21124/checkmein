@@ -184,7 +184,7 @@
     if (self.request != nil)
         [self.request cancel];
 
-    
+    // TODO : CHANGE THAT :
     // Get the geoloc of the user
     //NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?query=%@&ll=%lf,%lf&client_id=%@&client_secret=%@&v=%@", [self.searchField.text urlEncode], ll.latitude, ll.longitude, kCMI4qClientId, kCMI4qClientSecret, kCMI4qVersion];
 
