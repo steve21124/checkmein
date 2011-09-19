@@ -8,4 +8,8 @@ module CMI class App
     mustache(:toolbox, :layout => :layout)
   end
   
+  get("/next/?") do
+    mustache(:next, :layout => :layout)
+  end
+  
 end end
