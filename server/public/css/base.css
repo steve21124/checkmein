@@ -19,7 +19,7 @@ body {
   background-repeat:repeat;
 }
 body a {
-  color: #ff0000;
+  color: #2398c9;
   text-decoration: none;
 }
 body h1 {
@@ -56,4 +56,11 @@ body p {
   padding-bottom: 30px;
   text-align: center;
   text-indent: -9999px;
+}
+#footer {
+  font-size: 14px;
+  margin-top: 30px;
+  padding-bottom: 25px;
+  padding-top: 0;
+  text-align: center;
 }
