@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		822766AF1425CDA800B82524 /* MBProgressHUDAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 822766AE1425CDA800B82524 /* MBProgressHUDAdditions.m */; };
+		824125861427751F0021F499 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 824125851427751F0021F499 /* Entitlements.plist */; };
 		8284AE151424C1A2000321FF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8284AE141424C1A2000321FF /* UIKit.framework */; };
 		8284AE171424C1A2000321FF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8284AE161424C1A2000321FF /* Foundation.framework */; };
 		8284AE191424C1A2000321FF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8284AE181424C1A2000321FF /* CoreGraphics.framework */; };
@@ -90,6 +91,7 @@
 /* Begin PBXFileReference section */
 		822766AD1425CDA800B82524 /* MBProgressHUDAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUDAdditions.h; sourceTree = "<group>"; };
 		822766AE1425CDA800B82524 /* MBProgressHUDAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUDAdditions.m; sourceTree = "<group>"; };
+		824125851427751F0021F499 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Entitlements.plist; path = ../Entitlements.plist; sourceTree = "<group>"; };
 		8284AE101424C1A2000321FF /* CheckMeIn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheckMeIn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8284AE141424C1A2000321FF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8284AE161424C1A2000321FF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -310,6 +312,7 @@
 		8284AE1B1424C1A2000321FF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				824125851427751F0021F499 /* Entitlements.plist */,
 				8284AE1C1424C1A2000321FF /* CheckMeIn-Info.plist */,
 				8284AE1D1424C1A2000321FF /* InfoPlist.strings */,
 				8284AE201424C1A2000321FF /* CheckMeIn-Prefix.pch */,
@@ -643,6 +646,7 @@
 				9AE3F1761425E43A00F0039A /* CMISuscribe.xib in Resources */,
 				9AA1928A1425F6A600287A8B /* moodstocks.png in Resources */,
 				9AA1929014260AEC00287A8B /* default_userimage.png in Resources */,
+				824125861427751F0021F499 /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,6 +725,39 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		82412588142775510021F499 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = "Ad Hoc";
+		};
+		82412589142775510021F499 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Moodstocks SAS";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CheckMeIn/CheckMeIn-Prefix.pch";
+				INFOPLIST_FILE = "CheckMeIn/CheckMeIn-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "EFCEF5A4-46E8-4D26-87EA-844A2303CED3";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = "Ad Hoc";
+		};
 		8284AE2F1424C1A2000321FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -791,6 +828,7 @@
 			buildConfigurations = (
 				8284AE2F1424C1A2000321FF /* Debug */,
 				8284AE301424C1A2000321FF /* Release */,
+				82412588142775510021F499 /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -800,6 +838,7 @@
 			buildConfigurations = (
 				8284AE321424C1A2000321FF /* Debug */,
 				8284AE331424C1A2000321FF /* Release */,
+				82412589142775510021F499 /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
