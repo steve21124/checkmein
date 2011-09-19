@@ -7,5 +7,5 @@ module CMI
       puts "PARAMS: #{params}" if CFG[:debug] && !request.get?
     end
   end
-  ASE::require_part %w{settings auth about}
+  ASE::require_part %w{settings auth pages}
 end

@@ -4,4 +4,8 @@ module CMI class App
     mustache(:about, :layout => :layout)
   end
   
+  get("/toolbox/?") do
+    mustache(:toolbox, :layout => :layout)
+  end
+  
 end end
