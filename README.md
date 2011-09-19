@@ -7,3 +7,7 @@ iPad app for local businesses willing to provide their customers with the best c
 ## foursquare hackathon
 
 This has been done at [Le Camping, Paris](http://www.lecamping.org/home-fr) for the first-ever, round-the-clock, round-the-world [foursquare hackathon](http://blog.foursquare.com/2011/08/17/announcing-the-round-the-clock-round-the-world-foursquare-hackathon/)!
+
+## Authors
+
+[Antonio Mendes Pinto](http://fr.linkedin.com/in/mendesantonio), [Cédric Deltheil](http://about.me/deltheil) & [Denis Brulé](http://dfbrule.com/).
