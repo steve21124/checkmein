@@ -36,7 +36,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.moodstocks.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.moodstocks.checkmein</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
