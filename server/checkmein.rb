@@ -32,7 +32,7 @@ module CMI
     dump_errors: true,
     environment: :production,
     logging: true,
-    public: CFG[:path][:public],
+    public_folder: CFG[:path][:public],
     sessions: true,
     mustache: {
       views: File.join(root,'views/'),
