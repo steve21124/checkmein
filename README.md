@@ -2,7 +2,7 @@
 
 ## What it is?
 
-CheckMeIn is an iPad app for businesses willing to provide their customers with the best check-in experience. Customers just have to point their profile pic to the iPad to instantaneously check-in. No connection is required on the customers' side.
+iPad app for businesses. Customers just have to point their profile pic to the iPad to instantaneously check-in. No connection is required on the customers' side. One of the [Foursquare global hackathon winners](http://blog.foursquare.com/2011/09/28/announcing-the-global-hackathon-winners/).
 
 ## How-to use it?
 
